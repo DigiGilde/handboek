@@ -34,7 +34,5 @@ jobs:
       - name: Set up Python
         run: uv python install
       - name: Install dependencies
-        run: |
-          git config --global url."https://github-actions:${{ secrets.MKDOCS_MATERIAL_INSIDERS }}@github".insteadOf ssh://git@github
-          uv sync --locked --no-dev
+        run: uv sync --locked --no-dev
       - run: uv run mkdocs gh-deploy --force
