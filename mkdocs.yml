@@ -91,6 +91,7 @@ nav:
   - RIG Handboek: index.md
   - Onze werkwijze:
       - Principes: werkwijze/principes.md
+      - Bijdragen aan het RIG Handboek: bijdragen-aan-handboek.md
       - Beslissingen logboek: werkwijze/beslissingen-logboek.md
       - Code review: werkwijze/code-review.md
   - Onboarding:
