@@ -33,6 +33,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/RijksICTGilde/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/rijksictgilde/
+    - icon: fontawesome/solid/globe
+      link: https://rijksictgilde.nl/
 
 extra_templates:
   - .well-known/security.txt
