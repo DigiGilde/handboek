@@ -1,0 +1,107 @@
+site_name: RIG Handboek
+site_url: https://rijksictgilde.github.io/handboek/
+site_description: In het RIG Handboek vind je handige informatie over hoe zaken bij het Rijks ICT Gilde zijn geregeld.
+copyright: European Union Public License v. 1.2
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.path
+    - navigation.prune
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+  palette:
+    primary: white
+    scheme: slate
+  icon:
+    logo: fontawesome/solid/house
+    annotation: fontawesome/solid/circle-info
+  language: nl
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/RijksICTGilde/
+
+extra_templates:
+  - .well-known/security.txt
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/landing-page.css
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+      timezone: Europe/Amsterdam
+      locale: nl
+  - glightbox
+  - privacy
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: MinBZK
+      repo: ai-validation
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - RIG Handboek: index.md
+  - Onze werkwijze:
+      - Principes: werkwijze/principes.md
+      - Beslissingen logboek: werkwijze/beslissingen-logboek.md
+      - Code review: werkwijze/code-review.md
+  - Onboarding:
+      - Onboarding: onboarding/index.md
+      - Dev machine: onboarding/dev-machine.md
+      - Accounts: onboarding/accounts.md
+      - Offboarding: offboarding.md

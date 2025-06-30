@@ -1,0 +1,6 @@
+.venv
+.vscodes
+*.egg-info
+
+site
+.cache

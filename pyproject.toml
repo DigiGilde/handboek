@@ -1,0 +1,15 @@
+[project]
+name = "rig-handboek"
+dynamic = ["version"]
+description = "In het RIG Handboek vind je handige informatie over hoe zaken bij het Rijks ICT Gilde zijn geregeld."
+requires-python = ">=3.12"
+dependencies = [
+    "mkdocs-git-revision-date-localized-plugin==1.4.7",
+    "mkdocs-glightbox==0.4.0",
+    "mkdocs-material[imaging] @ git+ssh://git@github.com/MinBZK/mkdocs-material-insiders.git",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit==4.2.0",
+]
