@@ -24,8 +24,8 @@ theme:
   palette:
     primary: white
     scheme: slate
+  favicon: assets/favicon.ico
   icon:
-    logo: fontawesome/solid/house
     annotation: fontawesome/solid/circle-info
   language: nl
 
@@ -43,8 +43,7 @@ extra_css:
 
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: true
-      fallback_to_build_date: true
+      enable_creation_date: false
       timezone: Europe/Amsterdam
       locale: nl
   - glightbox
@@ -58,28 +57,18 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  - pymdownx.arithmatex:
-      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.highlight:
+      use_pygments: true
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink:
-      normalize_issue_symbols: true
-      repo_url_shorthand: true
-      user: MinBZK
-      repo: ai-validation
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.snippets:
-      auto_append:
-        - includes/mkdocs.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

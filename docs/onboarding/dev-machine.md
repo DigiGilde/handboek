@@ -73,13 +73,7 @@ Via Citrix krijg je toegang tot jouw digitale Rijkswerkplek.
   te starten:
 
     ```ini
-    plugins = (
-        docker
-        docker-compose
-        git
-        kubectl
-        uv
-    )
+    plugins = (docker docker-compose git kubectl uv)
     ```
 
 - [Touch ID in Terminal](https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal)
