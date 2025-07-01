@@ -1,5 +1,7 @@
+<!-- markdownlint-disable MD041 -->
 [![Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-brightgreen?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+<!-- markdownlint-enable MD041 -->
 
 # Het RIG Handboek
 
