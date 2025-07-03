@@ -1,7 +1,7 @@
 [project]
-name = "rig-handboek"
+name = "digi-handboek"
 dynamic = ["version"]
-description = "In het RIG Handboek vind je handige informatie over hoe zaken bij het Rijks ICT Gilde zijn geregeld."
+description = "In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld."
 requires-python = ">=3.12"
 dependencies = [
     "mkdocs-git-revision-date-localized-plugin==1.4.7",

@@ -1,7 +1,7 @@
-# Je eerste dagen bij het RIG
+# Je eerste dagen bij het Digi Gilde
 
-Welkom bij het RIG! Een nieuwe start is altijd spannend, maar we zijn er om je te helpen. En hoewel elke start anders
-is, proberen we je een aantal handvatten te geven om goed van start te gaan.
+Welkom bij het Digi Gilde! Een nieuwe start is altijd spannend, maar we zijn er om je te helpen. En hoewel elke start
+anders is, proberen we je een aantal handvatten te geven om goed van start te gaan.
 
 Voor je eerste werkdag is er al contact geweest over je startdatum, tijd en locatie waar je verwacht wordt. Daarnaast
 wordt ook met je afgestemd op welke hardware je wilt werken. MacOS, Linux of Windows, dat maakt niet uit. De eerste dag
@@ -13,11 +13,10 @@ dag voor je samenstellen. Een onderdeel hiervan is dat we een aantal praktische 
 laptop, mobiele telefoon, toegangspas en het activeren van je accounts. Daarnaast is er ook tijd om alvast kennis te
 maken met een aantal collega's en de werkomgeving.
 
-Omdat het Rijks ICT Gilde een consultancy en detacheringsorganisatie is, werk je bij verschillende oprdrachtgevers. Dit
-betekent dat je ook zo snel mogelijk aan de slag gaat bij je eerste opdrachtgever. Waaarschijnlijk al vanaf dag 2.
-Natuurlijk heb je dan nog niet alles geregeld en heb je nog niet alle collega's ontmoet. Wel geven wij de tip om in je
-eerste weken ook tijd te nemen om meer collega's en de organisatie te leren kennen. We zijn gewend om elkaar via
-video calls te ontmoeten en de collega's zijn altijd bereid om je te helpen.
+Hoewel de eertse projecten waarschijnlijk al op je liggen te wachten, is het belangrijk om de tijd te nemen om
+jezelf goed in te werken. Natuurlijk weten we dat dit tijd kost. Wel geven wij de tip om in je eerste weken ook tijd te
+nemen om meer collega's en de organisatie te leren kennen. We zijn gewend om elkaar via video calls te ontmoeten en de
+collega's zijn altijd bereid om je te helpen.
 
 In je eerste dagen zijn er een aantal dingen die je kunt doen om goed van start te gaan:
 

@@ -618,7 +618,7 @@ wheels = [
 ]
 
 [[package]]
-name = "rig-handboek"
+name = "digi-handboek"
 source = { virtual = "." }
 dependencies = [
     { name = "mkdocs-git-revision-date-localized-plugin" },

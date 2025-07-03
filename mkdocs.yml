@@ -1,11 +1,25 @@
-site_name: RIG Handboek
-site_url: https://rijksictgilde.github.io/handboek/
-site_description: In het RIG Handboek vind je handige informatie over hoe zaken bij het Rijks ICT Gilde zijn geregeld.
+site_name: Digi Handboek
+site_url: https://digigilde.github.io/handboek/
+site_description: In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld.
 copyright: European Union Public License v. 1.2
+
+nav:
+  - Digi Handboek: index.md
+  - Onze werkwijze:
+      - Principes: werkwijze/principes.md
+      - Bijdragen aan het Digi Handboek: bijdragen-aan-handboek.md
+      - Beslissingen logboek: werkwijze/beslissingen-logboek.md
+      - Code review: werkwijze/code-review.md
+  - Onboarding:
+      - Je eerste dagen: onboarding/eerste-dagen.md
+      - Dev machine: onboarding/dev-machine.md
+      - Accounts: onboarding/accounts.md
+      - Offboarding: offboarding.md
 
 theme:
   name: material
-  custom_dir: overrides
+  logo: assets/logo_digi_gilde.svg
+  favicon: assets/logo_digi_gilde.svg
   features:
     - content.code.copy
     - content.tabs.link
@@ -22,9 +36,20 @@ theme:
     - search.highlight
     - search.suggest
   palette:
-    primary: white
-    scheme: slate
-  favicon: assets/favicon.ico
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to auto mode
   icon:
     annotation: fontawesome/solid/circle-info
   language: nl
@@ -32,7 +57,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/RijksICTGilde/
+      link: https://github.com/DigiGilde/
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/rijksictgilde/
     - icon: fontawesome/solid/globe
@@ -42,8 +67,7 @@ extra_templates:
   - .well-known/security.txt
 
 extra_css:
-  - stylesheets/extra.css
-  - stylesheets/landing-page.css
+  - stylesheets/digigilde.css
 
 plugins:
   - git-revision-date-localized:
@@ -86,16 +110,3 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
-nav:
-  - RIG Handboek: index.md
-  - Onze werkwijze:
-      - Principes: werkwijze/principes.md
-      - Bijdragen aan het RIG Handboek: bijdragen-aan-handboek.md
-      - Beslissingen logboek: werkwijze/beslissingen-logboek.md
-      - Code review: werkwijze/code-review.md
-  - Onboarding:
-      - Je eerste dagen: onboarding/eerste-dagen.md
-      - Dev machine: onboarding/dev-machine.md
-      - Accounts: onboarding/accounts.md
-      - Offboarding: offboarding.md

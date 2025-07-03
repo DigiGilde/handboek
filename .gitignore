@@ -1,5 +1,6 @@
 .venv
 .vscodes
+*.code-workspace
 *.egg-info
 
 site

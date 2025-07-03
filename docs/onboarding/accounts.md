@@ -13,7 +13,7 @@ Zorg ervoor dat je [Mattermost](dev-machine.md#communicatie) hebt geïnstalleerd
         https://digilab.overheid.nl/chat
         ```
 
-3. Vraag een collega om je toe te voegen aan het Rijks ICT Gilde team.
+3. Vraag een collega om je toe te voegen aan het Digi Gilde en Rijks ICT Gilde team.
 4. Vergeet niet om even je profiel in te stellen inclusief een herkenbare profiel afbeelding.
 
 ## Webex
@@ -37,9 +37,9 @@ GitHub, betekent niet dat je een account hoeft te gebruiken die naar jou als pri
 probleem om een anoniem account aan te maken. Als je een account hebt, volg daarna de volgende stappen:
 
 - Voeg je `@rijksoverheid.nl` e-mailadres toe aan je account.
-- Vraag een collega om je toe te voegen aan de GitHub organisatie
+- Vraag een collega om je toe te voegen aan de GitHub organisatie [Digi Gilde](https://github.com/orgs/DigiGilde) en
   [Rijks ICT Gilde](https://github.com/orgs/RijksICTGilde).
-- Vraag een collea om je toe te voegen aan de GitHub organisatie [MinBZK](https://github.com/orgs/MinBZK).
+- Vraag een collega om je toe te voegen aan de GitHub organisatie [MinBZK](https://github.com/orgs/MinBZK).
 
 ## Deel je Outlook agenda
 
