@@ -6,14 +6,16 @@ moeten aanpassen in onderstaande lijst voel je vrij om hiervoor een pull request
 
 ## Zaken die standaard op je Macbook zouden moeten zitten
 
-- [Keep awake met Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704)
-- [Office DisplayLink software](https://www.synaptics.com/products/displaylink-graphics/downloads/macos)
 - [Homebrew as the missing Package Manager](https://brew.sh/)
-
     ```shell
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
+- [Keep awake met Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704)
 
+- [Office DisplayLink software](https://www.synaptics.com/products/displaylink-graphics/downloads/macos) (verbinden externe schermen)
+    ```shell
+    brew install --cask displaylink
+    ```
 - [Rectangle](https://rectangleapp.com/)
 
     ```shell
