@@ -58,4 +58,6 @@ token heeft de volgende rechten nodig:
 Ook moet je onderdeel zijn van ons GitHub team om toegang te krijgen tot deze vault.
 
 ## Self-service portaal
-Op het [self-service portaal](https://topdesk-sscict.rijksweb.nl) kun je zelf zaken regelen, waarvoor je anders naar de SSC-ICT balie moet. Bijvoorbeeld het resetten van het blackberry wachtwoord.
+
+Op het [self-service portaal](https://topdesk-sscict.rijksweb.nl) kun je zelf zaken regelen, waarvoor je anders naar de
+SSC-ICT balie moet. Bijvoorbeeld het resetten van het blackberry wachtwoord.
