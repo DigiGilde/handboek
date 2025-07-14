@@ -24,14 +24,30 @@ Dat kan op verschillende manieren. Zie onze
 
 ### Lokaal ontwikkelen
 
-Het Digi Handboek kan lokaal met behulp van [Python](https://www.python.org/) worden bekeken. Installeer hiervoor de
-benodigde packages met [uv](https://github.com/astral-sh/uv):
+Het Digi Handboek kan lokaal met behulp van [Python](https://www.python.org/) worden bekeken.
+
+#### Tool versies
+
+Dit project gebruikt [asdf](https://asdf-vm.com/) voor tool versie management. De juiste versies van Python en uv staan
+gedefinieerd in het `.tool-versions` bestand. Als je asdf hebt geïnstalleerd, installeer dan de juiste versies met:
+
+```bash
+asdf install
+```
+
+Zonder asdf: zorg ervoor dat je Python 3.13.3+ en uv 0.7.20+ hebt geïnstalleerd.
+
+#### Dependencies installeren
+
+Installeer de benodigde packages met [uv](https://github.com/astral-sh/uv):
 
 ```bash
 uv sync
 ```
 
-Vervolgens kun je een preview van het Digi Handboek lokaal bekijken met:
+#### Lokale preview
+
+Je kan een preview van het Digi Handboek lokaal bekijken met:
 
 ```bash
 uv run mkdocs serve
