@@ -1,0 +1,68 @@
+name: Publiceer PR preview voor Digi Handboek
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: github-pages-deploy
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set repo variables and configure MkDocs
+        if: github.event.action != 'closed'
+        id: repo_vars
+        run: |
+          REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          REPO_BASE_URL="${REPO_OWNER}.github.io/${{ github.event.repository.name }}"
+          echo "repo_base_url=${REPO_BASE_URL}" >> $GITHUB_OUTPUT
+          sed -i "s|^site_url:.*|site_url: https://${REPO_BASE_URL}/pr-preview/pr-${{ github.event.number }}/|" mkdocs.yml
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+        if: github.event.action != 'closed'
+      - uses: actions/cache@v4
+        if: github.event.action != 'closed'
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - name: Install uv
+        if: github.event.action != 'closed'
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+      - name: Set up Python
+        if: github.event.action != 'closed'
+        run: uv python install
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: uv sync --locked --no-dev
+      - name: Build preview
+        if: github.event.action != 'closed'
+        run: uv run mkdocs build
+      - uses: actions/upload-artifact@v4
+        if: github.event.action != 'closed'
+        with:
+          name: digihandboek-preview-pr-${{github.event.number}}
+          path: ./site/
+      - name: Publish or clean up preview
+        if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: site/
+          pages-base-url: ${{ steps.repo_vars.outputs.repo_base_url }}
+          action: auto
