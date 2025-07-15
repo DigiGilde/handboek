@@ -14,6 +14,7 @@ nav:
       - Je eerste dagen: onboarding/eerste-dagen.md
       - Dev machine: onboarding/dev-machine.md
       - Accounts: onboarding/accounts.md
+      - Hybride werken: onboarding/hybride-werken.md
       - Offboarding: offboarding.md
 
 theme:
