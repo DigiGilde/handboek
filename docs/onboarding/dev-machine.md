@@ -49,7 +49,6 @@ Via Citrix krijg je toegang tot jouw digitale Rijkswerkplek.
     ```
 
 - [Tuple](https://tuple.app/download) om met elkaar vanaf afstand samen te werken.
-Vraag een collega om je uit te nodigen voor de gratis tenant.
 
     ```shell
     brew install --cask tuple
