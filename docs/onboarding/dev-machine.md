@@ -48,7 +48,12 @@ Via Citrix krijg je toegang tot jouw digitale Rijkswerkplek.
     brew install --cask webex
     ```
 
-- [Tuple](https://tuple.app/download) om met elkaar vanaf afstand samen te werken
+- [Tuple](https://tuple.app/download) om met elkaar vanaf afstand samen te werken.
+Vraag een collega om te worden uitgenodigd voor de gratis tenant.
+
+    ```shell
+    brew install --cask tuple
+    ```
 
 ## Terminal en shell
 
