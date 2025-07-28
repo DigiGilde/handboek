@@ -10,7 +10,8 @@ Het Rijk heeft ook een visie op hybride werken. Deze visie is te vinden op de we
 
 Omdat je op verschillende locaties werkt en mogelijk ook vanuit openbare ruimtes, is het belangrijk dat je nadenkt over
 welke voorzieningen je moet treffen om veilig en verantwoord te kunnen werken. Denk hierbij aan het niet gebruiken van
-openbare wifi-netwerken. Je kunt bijvoorbeeld altijd je werktelefoon gebruiken om een hotspot te maken.
+openbare wifi-netwerken. Je kunt bijvoorbeeld altijd je werktelefoon gebruiken om een hotspot te maken. Of je gebruikt
+[GovVPN](https://govroam.nl/govroam-diensten/govvpn/) voor het opzetten van een een beveiligde verbinding.
 
 Hou er ook rekening mee dat iemand over je schouder mee kan kijken. Voor de MacBooks waar de meeste van ons mee werken
 is [het privacyscherm van Mastersøn](https://www.bol.com/nl/nl/p/masterson-macbook-pro-14-inch-privacy-screenprotector-14-2-inch-scherm-filter/9300000071662058/)
