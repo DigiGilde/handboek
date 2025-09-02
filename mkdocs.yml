@@ -16,6 +16,8 @@ nav:
       - Accounts: onboarding/accounts.md
       - Hybride werken: onboarding/hybride-werken.md
       - Offboarding: offboarding.md
+  - Kennis:
+      - SSO Rijk: kennis/sso-rijk-keycloak.md
 
 theme:
   name: material
