@@ -19,5 +19,16 @@ repos:
     hooks:
       - id: markdownlint
 
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: v0.15.1
+    hooks:
+      - id: lychee
+        args: [
+          "--exclude", "https://www.samenwerkruimten.nl/.*",
+          "--exclude", "https://topdesk-sscict.rijksweb.nl/.*",
+          "--exclude", "https://apple.stackexchange.com/.*",
+          "."
+        ]
+
 ci:
   autofix_prs: false
