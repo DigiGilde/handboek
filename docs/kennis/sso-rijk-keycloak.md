@@ -20,3 +20,28 @@ De volgende attributen worden aangeleverd. Afhankelijk van de koppelmethode, SAM
 organizationDisplayName lijkt zich te beperken tot de hoofdorganisatie, zoals de naam van het ministerie.
 
 organizationNumber is het openbare [Organisatie Identificatienummers (OIN)](https://oinregister.logius.nl/oin-register)
+
+## Identifiers
+
+Om personen uniek te maken, wordt gebruik gemaakt van de volgende conventies:
+
+UserID: urn:collab:person:{ministerie-domein.nl}:AchternaamVoorletters
+
+Username: urn:collab:person:{ministerie-domein.nl}:achternaamvoorletters
+
+Merk op dat userID dus CamelCase gebruikt voor persoonsnaam, de rest is allemaal lowercase.
+
+Wanneer een naam niet uniek genoeg is, wordt gebruik gemaakt van een alias. Dit alias is terug te vinden
+in het adresboek in outlook. Een alias is meestal de gebruikersnaam met 1 of meerdere willekeurige letters toegevoegd.
+
+### Voorbeeld
+
+UserID: urn:collab:person:minbzk.nl:AchternaamV
+
+Username: urn:collab:person:minbzk.nl:achternaamv
+
+### Voorbeeld met alias
+
+UserID: urn:collab:person:minbzk.nl:AchternaamVJT
+
+Username: urn:collab:person:minbzk.nl:achternaamvjt
