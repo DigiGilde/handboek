@@ -54,7 +54,7 @@ jobs:
       - name: Build preview
         if: github.event.action != 'closed'
         run: uv run mkdocs build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: github.event.action != 'closed'
         with:
           name: digihandboek-preview-pr-${{github.event.number}}
