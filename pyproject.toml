@@ -4,7 +4,7 @@ dynamic = ["version"]
 description = "In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld."
 requires-python = ">=3.12"
 dependencies = [
-    "mkdocs-git-revision-date-localized-plugin==1.4.7",
+    "mkdocs-git-revision-date-localized-plugin==1.5.0",
     "mkdocs-glightbox==0.5.2",
     "mkdocs-material[imaging]==9.6.23",
 ]
