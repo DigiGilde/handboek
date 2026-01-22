@@ -18,6 +18,7 @@ nav:
       - Offboarding: offboarding.md
   - Kennis:
       - SSO Rijk: kennis/sso-rijk-keycloak.md
+      - Reservation Bot: kennis/reservation-bot.md
 
 theme:
   name: material
