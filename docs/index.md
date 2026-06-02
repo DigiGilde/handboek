@@ -78,9 +78,9 @@ De eerste stappen hebben we hiervoor al gezet. Zo werken we nu bijvoorbeeld aan 
   machine leesbare objecten. In combinatie met de classificatie van het algoritme, helpt AMT je bij de implementatie van
   deze vereisten. De huidige stand van zaken kan worden geëxporteerd in een standaard voor verslaglegging van
   algoritmes.
-- **[Machine-leesbare Wetgeving](https://github.com/MinBZK/poc-machine-law)** waarin we een concept voor het omzetten
-  van Nederlandse wetgeving naar machine-leesbare specificaties ontwikkelen. Dit draagt bij aan de uitvoerbaarheid van
-  wetgeving en transparantie richting burgers en ondernemers.
+- **[RegelRecht](https://regelrecht.rijks.app/)** verkent of wetgeving als uitvoerbare code geschreven kan worden,
+  zodat verschillende organisaties dezelfde wet ook hetzelfde toepassen en burgers kunnen volgen hoe een besluit tot
+  stand komt.
 
 Het Digi Gilde is enthousiast en met toewijding bezig om samen met beleidsmakers, juristen, bestuurders en andere
 experts een succes te maken van bovenstaande projecten. En wij hebben er zin in om meer projecten op te gaan pakken
