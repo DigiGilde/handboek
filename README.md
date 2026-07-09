@@ -5,8 +5,8 @@
 
 # Het Digi Handboek
 
-Met het Digi Handboek maken we collega's graag wegwijs binnen het Digi Gilde (onderdeel van het
-[Rijks ICT Gilde](https://rijksictgilde.nl/)). Op deze plek kun je onder andere tips en tricks vinden over het opzetten
+Met het Digi Handboek maken we collega's graag wegwijs binnen het Digi Gilde (onderdeel van
+[ODI](https://www.rijksorganisatieodi.nl/)). Op deze plek kun je onder andere tips en tricks vinden over het opzetten
 van een digitale werkplek, hoe we werken en hoe we elkaar kunnen versterken.
 
 In deze repository ontwikkelen wij het Digi Handboek. We werken dit met elkaar uit in verschillende Markdown bestanden

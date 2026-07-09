@@ -63,9 +63,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/DigiGilde/
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/rijksictgilde/
+      link: https://www.linkedin.com/company/rijksorganisatie-odi/
     - icon: fontawesome/solid/globe
-      link: https://rijksictgilde.nl/
+      link: https://www.rijksorganisatieodi.nl/
 
 extra_templates:
   - .well-known/security.txt

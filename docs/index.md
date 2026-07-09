@@ -6,7 +6,7 @@ hide:
 # Het Digi Handboek
 
 Welkom bij het Digi Handboek! Hier vind je alle informatie die je nodig hebt om goed te starten bij het Digi Gilde
-(onderdeel van het [Rijks ICT Gilde](https://rijksictgilde.nl)).
+(onderdeel van [ODI](https://www.rijksorganisatieodi.nl/)).
 
 In dit handboek vind je:
 
@@ -19,7 +19,7 @@ RIG Gids en informatie op het Rijksportaal.
 
 ## Over het Digi Gilde
 
-Wij zijn onderdeel van het [Rijks ICT Gilde](https://rijksictgilde.nl). Met onze groep leveren we een bijdrage
+Wij zijn onderdeel van [ODI](https://www.rijksorganisatieodi.nl/). Met onze groep leveren we een bijdrage
 aan een moderne en transparante digitale overheid. Wij werken onder andere aan de uitvoering van de
 [Nederlandse Digitaliseringsstrategie (NDS)](https://www.digitaleoverheid.nl/nederlandse-digitaliseringsstrategie-nds/).
 
@@ -53,7 +53,7 @@ softwareproducten kan worden doorontwikkeld. Daarom hebben we aanvullend platfor
 van het Digi Gilde. Dit is namelijk een onderdeel van wat nodig is om een goede ontwikkelervaring (DevEx, ofwel
 Developer Experience) te kunnen bieden.
 
-Het maken en beheren van softwareproducten is niet nieuw voor het Rijks ICT Gilde. Met het Digi Gilde willen we dit
+Het maken en beheren van softwareproducten is niet nieuw voor ODI. Met het Digi Gilde willen we dit
 specifiek op de kaart zetten en de krachten bundelen. We willen een omgeving bieden met een DevEx die ontwikkelingen
 versnelt. Wat daarbij wel nieuw is, is dat we nu uitspreken dat we in de toekomst beheer willen doen van de door ons
 ontwikkelde softwareproducten. Stap voor stap gaan we hier mee aan de slag.

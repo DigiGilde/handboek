@@ -46,7 +46,7 @@ Een werkplek reserveren is niet verplicht, maar wel mogelijk. Een werkplek op Be
 > Wilhelmina van Pruisenweg 104  
 > 2595 AN Den Haag
 
-HSD is een locatie waar het Rijks ICT Gilde een kantoor- en vergaderruimte heeft. Wil je daar werken, dan kun je dat
+HSD is een locatie waar ODI een kantoor- en vergaderruimte heeft. Wil je daar werken, dan kun je dat
 via [RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl) regelen. Bij HSD hebben we ook de mogelijkheden om extra
 vergaderruimtes te huren.
 
