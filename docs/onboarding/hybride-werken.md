@@ -50,29 +50,8 @@ HSD is een locatie waar ODI een kantoor- en vergaderruimte heeft. Wil je daar we
 via [RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl) regelen. Bij HSD hebben we ook de mogelijkheden om extra
 vergaderruimtes te huren.
 
-### Digilab (Dev.loer)
-
-> Dev.loer / Digilab  
-> Gebouw Trindeborch, 5e verdieping
-> Catharijnesingel 55  
-> 3511 GD Utrecht
-
-[Digilab](https://digilab.overheid.nl/) is een broedplaats voor technische innovaties, bedoeld voor projecten die voor
-of met de overheid werken. Zij hebben ook de Dev.loer. Dev.loer biedt jou een flexwerkplek met koffie, wifi en
-breedbeeldschermen waar je samen kunt werken.
-
-Wil je daar een dag werken, vraag dan een van je collega's voor toegang tot het deurkanaal op het Digilab team op
-Mattermost. Ook kun je via het Digilab team op Mattermost een werkplek of vergaderruimte reserveren via de reservation
-bot.
-
-Praktische zaken:
-
-- Code deur beneden staat in de beschrijving het [deur kanaal](https://digilab.overheid.nl/chat/digilab/channels/deur)
-- Deur boven openen doe je door een verzoek aan de `Door Lock Bot` (zie
-  [deur kanaal](https://digilab.overheid.nl/chat/digilab/channels/deur)). Hiermee open je de deur aan de linkerkant. De
-  deur die bij de liften zit.
-- Vergaderruimte of werkplek reserveren gaat via de `reservation bot` (zie
-  [reserveringen kanaal](https://digilab.overheid.nl/chat/digilab/channels/reserveringen))
+Een werkplek of vergaderruimte reserveer je via de `reservation bot` op Mattermost (zie de
+[Reservation Bot](../kennis/reservation-bot.md) uitleg).
 
 ### Rijkshub
 
