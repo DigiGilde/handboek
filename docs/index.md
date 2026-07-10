@@ -21,7 +21,8 @@ RIG Gids en informatie op het Rijksportaal.
 
 Wij zijn onderdeel van [ODI](https://www.rijksorganisatieodi.nl/). Met onze groep leveren we een bijdrage
 aan een moderne en transparante digitale overheid. Wij werken onder andere aan de uitvoering van de
-[Nederlandse Digitaliseringsstrategie (NDS)](https://www.digitaleoverheid.nl/nederlandse-digitaliseringsstrategie-nds/).
+[Nederlandse Digitaliseringsstrategie (NDS)](https://www.digitaleoverheid.nl/nederlandse-digitaliseringsstrategie-nds/)
+en we bemensen de Nederlandse Digitale Dienst.
 
 Het Digi Gilde ontwikkelt open source softwareproducten en prototypes voor de overheid van nu en morgen. Daarbij zorgen
 wij voor een generieke digitale basis door middel van platform engineering. Dit betekent dat we ook interne tools en
