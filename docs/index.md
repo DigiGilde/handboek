@@ -81,6 +81,10 @@ De eerste stappen hebben we hiervoor al gezet. Zo werken we nu bijvoorbeeld aan 
 - **[RegelRecht](https://regelrecht.rijks.app/)** verkent of wetgeving als uitvoerbare code geschreven kan worden,
   zodat verschillende organisaties dezelfde wet ook hetzelfde toepassen en burgers kunnen volgen hoe een besluit tot
   stand komt.
+- **[Digilab](https://digilab.overheid.nl/)** is een broedplaats voor de vernieuwing van de digitale overheid, waar
+  overheidsprofessionals van gemeenten tot ministeries samenwerken aan gedeelde vraagstukken rond interoperabiliteit,
+  vertrouwen en datagovernance. Digilab biedt een soevereine infrastructuur om prototypes te ontwikkelen, los van
+  bestaande institutionele kaders.
 
 Het Digi Gilde is enthousiast en met toewijding bezig om samen met beleidsmakers, juristen, bestuurders en andere
 experts een succes te maken van bovenstaande projecten. En wij hebben er zin in om meer projecten op te gaan pakken
