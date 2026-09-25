@@ -64,6 +64,21 @@ Voor een overzicht van locaties neem je een kijkje op de pagina
 
 Reserveren kan via het [Workspace Management Systeem](https://go.cobundu.com/).
 
+### Andere rijksgebouwen: binnen zonder kloppen
+
+Moet je bij een opdrachtgever of ander ministerie zijn? Dan kun je met je Rijkspas vaak ook daar naar binnen, zonder
+dat je je bij de receptie hoeft te melden en opgehaald moet worden. Dit heet _binnen zonder kloppen_. Je vraagt de
+toegang vooraf zelf aan:
+
+1. Open de [Mijn Rijkspas-app](https://rijksappstore.nl/mijn-rijkspas) of ga naar
+   [rijkspas.rijksweb.nl](https://rijkspas.rijksweb.nl). De eerste keer in de app vul je een paar gegevens van je
+   Rijkspas in en kies je een pincode.
+2. Kies het gebouw waar je naartoe wilt en de periode waarin je er toegang nodig hebt.
+3. Afhankelijk van het toegangsbeleid van dat gebouw heb je direct toegang, of wordt je aanvraag eerst beoordeeld.
+   Vraag het dus op tijd aan, niet pas als je voor de deur staat.
+
+Werkt je pas toch niet, meld je dan gewoon bij de receptie.
+
 ## Thuiswerkplek
 
 Een goede thuiswerkplek is belangrijk en opgenomen in je arbeidsvoorwaarden. Dit omvat bijvoorbeeld een
