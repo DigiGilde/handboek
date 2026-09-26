@@ -104,7 +104,8 @@ Heb je een fout of bug gevonden in het Digi Handboek? Dan kan je deze melden doo
 Voordat je een [issue](https://github.com/DigiGilde/handboek/issues) gaat aanmaken, kan je bekijken of jouw gevonden
 fout al tussen de bestaande [issues](https://github.com/DigiGilde/handboek/issues) staat.
 
-Als je de gevonden fout nog steeds wilt melden, kan je een [Issue](https://github.com/MinBZK/DigiGilde/issues) aanmaken.
+Als je de gevonden fout nog steeds wilt melden, kan je een [Issue](https://github.com/DigiGilde/handboek/issues)
+aanmaken.
 
 1. Gebruik daarvoor de knop [new issue](https://github.com/DigiGilde/handboek/issues/new/choose).
 2. Beschrijf de fout duidelijk en geef een heldere toelichting. Voeg waar mogelijk een screenshot toe.
