@@ -9,11 +9,14 @@ on:
       - closed
 
 permissions:
-  contents: write
+  contents: read
+  id-token: write
+  deployments: write
   pull-requests: write
 
 concurrency:
-  group: github-pages-deploy
+  group: plak-preview-${{ github.event.number }}
+  cancel-in-progress: true
 
 jobs:
   preview:
@@ -22,14 +25,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - name: Set repo variables and configure MkDocs
+      - name: Set preview site URL
         if: github.event.action != 'closed'
-        id: repo_vars
-        run: |
-          REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          REPO_BASE_URL="${REPO_OWNER}.github.io/${{ github.event.repository.name }}"
-          echo "repo_base_url=${REPO_BASE_URL}" >> $GITHUB_OUTPUT
-          sed -i "s|^site_url:.*|site_url: https://${REPO_BASE_URL}/pr-preview/pr-${{ github.event.number }}/|" mkdocs.yml
+        run: echo "SITE_URL=https://plak.rijks.app/digigilde/handboek/_preview/pr-${{ github.event.number }}/" >> "$GITHUB_ENV"
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
         if: github.event.action != 'closed'
       - uses: actions/cache@v6
@@ -59,10 +57,14 @@ jobs:
         with:
           name: digihandboek-preview-pr-${{github.event.number}}
           path: ./site/
+      # A fork gets no OIDC token; bot PRs are skipped by the action itself.
       - name: Publish or clean up preview
-        if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
-        uses: rossjrw/pr-preview-action@v1
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
         with:
-          source-dir: site/
-          pages-base-url: ${{ steps.repo_vars.outputs.repo_base_url }}
-          action: auto
+          site: digigilde/handboek
+          dist-path: site
+          preview-ref: pr-${{ github.event.number }}
+          teardown: ${{ github.event.action == 'closed' }}
+          environment: preview
+          comment-on-pr: "true"

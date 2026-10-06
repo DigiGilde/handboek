@@ -1,5 +1,5 @@
 site_name: Digi Handboek
-site_url: https://digigilde.github.io/handboek/
+site_url: !ENV [SITE_URL, "https://digigilde.github.io/handboek/"]
 site_description: In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld.
 copyright: European Union Public License v. 1.2
 
