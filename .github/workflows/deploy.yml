@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  deployments: write
 
 concurrency:
   group: github-pages-deploy
@@ -41,4 +43,13 @@ jobs:
         with:
           folder: site
           clean: true
-          clean-exclude: pr-preview/
+      - name: Build site for Plak
+        run: uv run mkdocs build
+        env:
+          SITE_URL: https://plak.rijks.app/digigilde/handboek/
+      - name: Publish copy to Plak
+        uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
+        with:
+          site: digigilde/handboek
+          dist-path: site
+          environment: plak
