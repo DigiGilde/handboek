@@ -1,0 +1,215 @@
+---
+import { execFileSync } from 'node:child_process';
+import { realpathSync } from 'node:fs';
+import { relative } from 'node:path';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { pageHref, sectionHref, sectionOf, sections } from '../navigation';
+
+export async function getStaticPaths() {
+    // The home page and the section overviews have pages of their own.
+    const overviews = new Set(['index', ...sections.map((section) => section.slug)]);
+    const entries = await getCollection('handboek', (entry) => !overviews.has(entry.id));
+    return entries.map((entry) => ({
+        params: { slug: entry.id.replace(/\/index$/, '') },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<'handboek'>;
+}
+
+const { entry } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await render(entry);
+const title: string | undefined = remarkPluginFrontmatter.title;
+const section = sectionOf(entry.id);
+
+// "Lees ook" lists the pages chosen in `related`, from any section, or else the
+// other pages of this section.
+const entries = await getCollection('handboek');
+const allPages = sections.flatMap((item) => item.pages);
+const related = entry.data.related
+    ? entry.data.related.map((id) => {
+          const page = allPages.find((item) => item.id === id);
+          if (!page) throw new Error(`${entry.id}: related page "${id}" is not in src/navigation.ts`);
+          return page;
+      })
+    : (section?.pages.filter((page) => page.id !== entry.id) ?? []);
+const readMore = related.slice(0, 5).map((page) => ({
+    ...page,
+    description: page.description ?? entries.find((item) => item.id === page.id)?.data.description,
+}));
+
+const git = (...args: string[]) =>
+    execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+// Front matter is site metadata, not text the reader sees.
+const body = (markdown: string) => markdown.replace(/^---\n[\s\S]*?\n---\n/, '').trimStart();
+
+// Date of the last commit that changed the text of the page.
+function lastModified(file: string | undefined): Date | undefined {
+    if (!file) return undefined;
+    try {
+        // A page can be a symlink (bijdragen-aan-handboek.md -> CONTRIBUTING.md);
+        // its history is the target's.
+        const real = realpathSync(file);
+        const path = relative(git('rev-parse', '--show-toplevel').trim(), real);
+        const show = (revision: string) => {
+            try {
+                return body(git('show', `${revision}:${path}`));
+            } catch {
+                return undefined;
+            }
+        };
+        for (const line of git('log', '--format=%H %cI', '--', real).trim().split('\n')) {
+            const [commit, date] = line.split(' ');
+            if (commit && show(commit) !== show(`${commit}^`)) return new Date(date);
+        }
+        return undefined;
+    } catch {
+        return undefined;
+    }
+}
+
+const updated = lastModified(entry.filePath);
+
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const hasToc = toc.length > 1;
+// Every page in a section keeps its text beside the sidebar, also with nothing
+// in it, so the text does not jump between pages.
+const Section = section ? 'nldd-sidebar-section' : 'nldd-simple-section';
+const breadcrumbs = section
+    ? [
+          { text: section.title, href: sectionHref(section) },
+          { text: section.pages.find((page) => page.id === entry.id)?.title ?? title ?? '' },
+      ]
+    : [{ text: title ?? '' }];
+---
+
+<Layout
+    title={title}
+    description={entry.data.description}
+    breadcrumbs={breadcrumbs}
+    updated={updated}
+    toc={hasToc}
+    back={section && { text: section.title, href: sectionHref(section) }}
+>
+    <Section {...(section ? { id: 'content-section', 'sidebar-label': 'Op deze pagina' } : {})}>
+        {
+            hasToc && (
+                <nldd-container slot="sidebar" padding="16" lg-padding-top="0" gap="8">
+                    <nldd-title id="toc-title" size="4" text="Op deze pagina" />
+                    <nldd-list id="toc" type="navigation" aria-label="Op deze pagina" dividers="never">
+                        {toc.map((heading) => (
+                            <nldd-list-item href={`#${heading.slug}`} size="sm">
+                                {heading.depth === 3 && <nldd-spacer-cell size="16" />}
+                                <nldd-text-cell text={heading.text} />
+                            </nldd-list-item>
+                        ))}
+                    </nldd-list>
+                </nldd-container>
+            )
+        }
+        <nldd-rich-text id="inhoud" data-pagefind-body>
+            <Content />
+        </nldd-rich-text>
+        {
+            readMore.length > 0 && (
+                <>
+                    <nldd-spacer size="48" />
+                    <nldd-divider />
+                    <nldd-spacer size="24" />
+                    <nldd-title size="3" heading-level="2" text="Lees ook" />
+                    <nldd-spacer size="16" />
+                    <nldd-list type="navigation" appearance="box-tinted" aria-label="Lees ook">
+                        {readMore.map((page) => (
+                            <nldd-list-item href={pageHref(page.id)}>
+                                <nldd-text-cell text={page.title} supporting-text={page.description} />
+                                <nldd-icon-cell icon="chevron-right" size="20" />
+                            </nldd-list-item>
+                        ))}
+                    </nldd-list>
+                </>
+            )
+        }
+    </Section>
+</Layout>
+
+<script>
+    // While the sidebar is collapsed into its sheet, a button in the top bar
+    // opens it.
+    type SidebarSection = HTMLElement & { show(): void; hide(): void };
+    const section = document.getElementById('content-section') as SidebarSection | null;
+    const opener = document.getElementById('sidebar-open');
+    // In the sheet its title bar already says "Op deze pagina".
+    const tocTitle = document.getElementById('toc-title');
+    if (section && opener) {
+        const sync = () => {
+            const collapsed = section.hasAttribute('collapsed');
+            opener.hidden = !collapsed;
+            if (tocTitle) tocTitle.hidden = collapsed;
+        };
+        // collapse-change fires before the component reflects `collapsed`, so
+        // the attribute is watched instead.
+        new MutationObserver(sync).observe(section, { attributeFilter: ['collapsed'] });
+        sync();
+        opener.addEventListener('click', () => section.show());
+        section.addEventListener('open', () => opener.setAttribute('expanded', ''));
+        section.addEventListener('close', () => opener.removeAttribute('expanded'));
+        // A jump to a heading closes the sheet, so the text is in view.
+        document.getElementById('toc')?.addEventListener('click', () => section.hide());
+    }
+
+    // The table of contents marks the section being read: the last heading
+    // that has scrolled past the top quarter of the viewport. At the end of the
+    // page that is the last heading, and after a jump it is the one jumped to,
+    // since a heading near the end never reaches the top of the viewport.
+    const tocItems = new Map(
+        [...document.querySelectorAll<HTMLElement>('#toc nldd-list-item')].map((item) => [
+            decodeURIComponent(item.getAttribute('href')?.slice(1) ?? ''),
+            item,
+        ]),
+    );
+    const tocHeadings = [...tocItems.keys()]
+        .map((id) => document.getElementById(id))
+        .filter((heading): heading is HTMLElement => heading !== null);
+    if (tocHeadings.length > 0) {
+        let current: HTMLElement | undefined;
+        let pinned = tocItems.has(decodeURIComponent(location.hash.slice(1)))
+            ? decodeURIComponent(location.hash.slice(1))
+            : undefined;
+        let jumping = false;
+
+        const markCurrent = () => {
+            let id = pinned;
+            if (!id) {
+                const atEnd = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+                const passed = tocHeadings.filter((heading) => heading.getBoundingClientRect().top < innerHeight / 4);
+                id = (atEnd ? tocHeadings.at(-1) : (passed.at(-1) ?? tocHeadings[0]))?.id;
+            }
+            const item = id ? tocItems.get(id) : undefined;
+            if (item === current) return;
+            current?.removeAttribute('current');
+            item?.setAttribute('current', '');
+            current = item;
+        };
+
+        addEventListener('hashchange', () => {
+            const id = decodeURIComponent(location.hash.slice(1));
+            if (!tocItems.has(id)) return;
+            pinned = id;
+            jumping = true;
+            setTimeout(() => (jumping = false), 500);
+            markCurrent();
+        });
+        addEventListener(
+            'scroll',
+            () => {
+                if (!jumping) pinned = undefined;
+                markCurrent();
+            },
+            { passive: true },
+        );
+        markCurrent();
+    }
+</script>

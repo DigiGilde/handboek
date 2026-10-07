@@ -1,8 +1,8 @@
-.venv
 .vscodes
 *.code-workspace
-*.egg-info
 
-site
-.cache
+node_modules
+dist
+.astro
+.playwright-mcp
 /.idea/

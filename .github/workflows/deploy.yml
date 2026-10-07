@@ -17,39 +17,31 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v6
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          enable-cache: true
-          cache-dependency-glob: "uv.lock"
-      - name: Set up Python
-        run: uv python install
+          node-version-file: .tool-versions
+          cache: npm
       - name: Install dependencies
-        run: uv sync --locked --no-dev
+        run: npm ci --omit=dev
       - name: Build site
-        run: uv run mkdocs build
+        run: npm run build
+        env:
+          SITE_URL: https://digigilde.github.io/handboek/
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
-          folder: site
+          folder: dist
           clean: true
       - name: Build site for Plak
-        run: uv run mkdocs build
+        run: npm run build
         env:
           SITE_URL: https://plak.rijks.app/digigilde/handboek/
       - name: Publish copy to Plak
         uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
         with:
           site: digigilde/handboek
-          dist-path: site
+          dist-path: dist
           environment: plak
