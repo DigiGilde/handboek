@@ -50,16 +50,6 @@ probleem om een anoniem account aan te maken. Als je een account hebt, volg daar
 - Selecteer eigenschappen
 - Geef iedereen binnen de organisatie leesrechten
 
-## Wachtwoorden
-
-We maken gebruik van [HashiCorp Vault](https://vault.apps.digilab.network/) secrets manager voor het delen van team
-gerelateerde secrets. Je kan inloggen met een [GitHub Personal access token](https://github.com/settings/tokens). De
-token heeft de volgende rechten nodig:
-
-- organization read permissions (`read:org`)
-
-Ook moet je onderdeel zijn van ons GitHub team om toegang te krijgen tot deze vault.
-
 ## Self-service portaal
 
 Op het [self-service portaal](https://topdesk-sscict.rijksweb.nl) kun je zelf zaken regelen, waarvoor je anders naar de
