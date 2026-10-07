@@ -6,3 +6,6 @@ dist
 .astro
 .playwright-mcp
 /.idea/
+
+# written by scripts/gen-pa11yci.mjs during npm run a11y
+.pa11yci

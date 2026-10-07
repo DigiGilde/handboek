@@ -1,0 +1,32 @@
+name: Toets de toegankelijkheid van het Digi Handboek
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: toegankelijkheid-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  a11y:
+    name: Toegankelijkheid
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .tool-versions
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Koppen, links en pa11y-ci
+        run: npm run a11y
