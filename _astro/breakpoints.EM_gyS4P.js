@@ -1,0 +1,1 @@
+var e={smMin:`320px`,smMax:`640px`,mdMin:`641px`,mdMax:`1007px`,lgMin:`1008px`};export{e as t};
