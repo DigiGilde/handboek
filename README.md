@@ -89,6 +89,22 @@ controle draait elke maandag op GitHub.
 De pagina's staan als Markdown in de map [docs](docs). Het menu staat in [src/navigation.ts](src/navigation.ts): voeg
 een nieuwe pagina daar toe om hem in het menu te laten verschijnen. De eerste kop (`#`) van een pagina is de titel.
 
+## Licentie
+
+De teksten van het Digi Handboek, de Markdown-bestanden in de map [docs](docs), vallen onder
+[Creative Commons Zero (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.nl). Je mag ze hergebruiken,
+ook voor commerciële doeleinden, zonder toestemming en zonder bronvermelding. Bronvermelding stellen we wel op prijs. De
+volledige tekst, in de officiële Nederlandse vertaling van Creative Commons, staat in
+[LICENSE-CC0-1.0.txt](LICENSE-CC0-1.0.txt).
+
+De code van de website valt onder de [Openbare Licentie van de Europese Unie 1.2 (EUPL-1.2)](LICENSE), in de
+officiële Nederlandse versie van de Europese Commissie.
+
+Het logo en de huisstijl van de Rijksoverheid en de lettertypen RijksSans en JetBrains Mono vallen onder geen
+van beide licenties. Ze komen mee met het [NLDD Designsysteem](https://github.com/NederlandseDigitaleDienst/design-system)
+en daarvoor gelden de voorwaarden in
+[NOTICES.md](https://github.com/NederlandseDigitaleDienst/design-system/blob/main/NOTICES.md) van het designsysteem.
+
 ## Vragen?
 
 Maak een [issue](https://github.com/DigiGilde/handboek/issues/new/choose) aan op GitHub. Of stuur een e-mail naar
