@@ -10,6 +10,9 @@ dist
 # written by scripts/gen-pa11yci.mjs during npm run a11y
 .pa11yci
 
+# zadctl: SSO token and project API key
+.env.zadctl
+
 # Claude Code: personal settings and worktrees
 .claude/settings.local.json
 .claude/worktrees/

@@ -9,6 +9,9 @@ export default defineConfig({
     site: siteUrl.origin,
     base,
     trailingSlash: 'always',
+    // No inlined scripts or assets, so the Content-Security-Policy in
+    // container/security-headers.conf needs no 'unsafe-inline'.
+    vite: { build: { assetsInlineLimit: 0 } },
     integrations: [sitemap({ filter: (page) => !page.endsWith('/404/') })],
     markdown: {
         syntaxHighlight: false,
