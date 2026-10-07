@@ -9,6 +9,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist && node scripts/check-site.mjs",
+    "a11y:static": "npm run build && node scripts/check-heading-order.mjs && node scripts/check-links.mjs",
+    "a11y": "npm run a11y:static && node scripts/gen-pa11yci.mjs && start-server-and-test \"astro preview --ignore-lock --port ${A11Y_PORT:-4173}\" \"tcp:localhost:${A11Y_PORT:-4173}\" pa11y-ci",
+    "links:extern": "npm run build && node scripts/check-external-links.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -18,5 +21,9 @@
     "@nldd/design-system": "^0.8.95",
     "astro": "^7.3.6",
     "pagefind": "^1.5.2"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^5.0.0",
+    "start-server-and-test": "^3.0.12"
   }
 }

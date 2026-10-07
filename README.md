@@ -64,6 +64,26 @@ npm run preview
 en elke CSS-variabele moet in het pakket bestaan, en elk gebruikt element moet geregistreerd zijn in
 [src/scripts/nldd.ts](src/scripts/nldd.ts). Een verkeerde naam rendert bij dit systeem niets en geeft geen foutmelding.
 
+#### Toegankelijkheid toetsen
+
+```bash
+npm run a11y
+```
+
+Dit bouwt de site, controleert de koppenstructuur en de interne links, en toetst daarna elke pagina met
+[pa11y-ci](https://github.com/pa11y/pa11y-ci) op WCAG 2.1 AA, met HTML_CodeSniffer en axe-core. Dezelfde toets draait bij
+elke pull request. Is poort 4173 bezet, kies dan een andere met `A11Y_PORT=4180 npm run a11y`.
+
+#### Externe links controleren
+
+```bash
+npm run links:extern
+```
+
+Dit haalt elke externe link op en faalt op een pagina die weg is (404 of 410) of een adres dat niet bestaat. Links naar
+het intranet van de Rijksoverheid zijn buiten het Rijksnetwerk niet te controleren en worden alleen gemeld. Dezelfde
+controle draait elke maandag op GitHub.
+
 #### Pagina's toevoegen
 
 De pagina's staan als Markdown in de map [docs](docs). Het menu staat in [src/navigation.ts](src/navigation.ts): voeg
