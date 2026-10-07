@@ -1,0 +1,15 @@
+# Catches broken YAML and sloppy indentation; not a style guide.
+extends: default
+
+rules:
+  line-length: disable
+  document-start: disable
+  comments:
+    min-spaces-from-content: 1
+  truthy:
+    # `on:` in a workflow is a key, not a boolean.
+    check-keys: false
+  braces:
+    max-spaces-inside: 1
+  brackets:
+    max-spaces-inside: 1

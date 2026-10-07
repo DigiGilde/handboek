@@ -9,3 +9,7 @@ dist
 
 # written by scripts/gen-pa11yci.mjs during npm run a11y
 .pa11yci
+
+# Claude Code: personal settings and worktrees
+.claude/settings.local.json
+.claude/worktrees/
