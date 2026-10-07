@@ -34,15 +34,7 @@ gezamenlijk gebouw van verschillende organisaties binnen het Rijk. Het is een op
 kleuren en verdiepingen zijn er wel toewijzingen gemaakt voor de verschillende organisaties. ODI zit op de eerste
 verdieping in de gele en rode zone. De kleuren zijn te vinden middels borden op de muur.
 
-De vergaderruimtes op Beatrixpark zijn te reserveren via onderstaande links. Vind je geen ruimte via een van de links,
-probeer dan de andere link.
-
-- [Facilitair portaal FMH](https://fmhn.facilitor.nl/?sso=FMH)
-- [Beyond Eyes](https://reservations.beyondeyes.com/) (inlog info op te vragen via
-  [digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl))
-
-Een werkplek reserveren is niet verplicht, maar wel mogelijk. Een werkplek op Beatrixpark reserveer je ook via
-[Beyond Eyes](https://reservations.beyondeyes.com/).
+De vergaderruimtes op Beatrixpark reserveer je via het [Facilitair portaal FMH](https://fmhn.facilitor.nl/?sso=FMH).
 
 ### HSD
 
