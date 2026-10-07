@@ -1,3 +1,7 @@
+---
+description: "Waarom en hoe we kleine beslissingen over werkwijze en aanpak vastleggen."
+---
+
 # Beslissingen logboek
 
 Tijdens ons werk worden er vaak (kleine) beslissingen over processen en benaderingen genomen. Hoewel deze vaak niet

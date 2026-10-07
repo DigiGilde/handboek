@@ -1,3 +1,7 @@
+---
+description: "Welke tools collega's op hun MacBook gebruiken, met de commando's om ze te installeren."
+---
+
 # Configureren van jouw Dev Machine
 
 Wij gaan ervan uit dat jouw Dev Machine een Macbook is. Deze handleiding is behoorlijk eigenzinnig, maar geeft aan welke

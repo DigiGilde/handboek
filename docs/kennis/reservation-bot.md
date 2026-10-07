@@ -1,3 +1,7 @@
+---
+description: "Met de Mattermost-plugin een werkplek reserveren, en hoe je hem beheert."
+---
+
 # Reservation Bot
 
 De Reservation Bot is een Mattermost plugin voor werkplekreservering. Medewerkers kunnen via een

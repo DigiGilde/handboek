@@ -1,3 +1,7 @@
+---
+description: "Hoe we pull requests aanmaken, reviewen en samenvoegen."
+---
+
 # Code reviews
 
 Het doel van een code review is om de kwaliteit, leesbaarheid en naleving van alle requirements uit het ticket te

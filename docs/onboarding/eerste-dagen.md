@@ -1,3 +1,7 @@
+---
+description: "Wat je in je eerste dagen bij het Digi Gilde kunt verwachten."
+---
+
 # Je eerste dagen bij het Digi Gilde
 
 Welkom bij het Digi Gilde! Een nieuwe start is altijd spannend, maar we zijn er om je te helpen. En hoewel elke start
@@ -27,4 +31,4 @@ In je eerste dagen zijn er een aantal dingen die je kunt doen om goed van start 
 Daarnaast kun je meer lezen over [onze werkwijze](../werkwijze/principes.md), enkele tips:
 
 - [Onze principes](../werkwijze/principes.md)
-- [Nederlandse Richtlijn Digitale Systemen (NeRDS)](https://minbzk.github.io/NeRDS/)
+- [Nederlandse Richtlijn Digitale Systemen (NeRDS)](https://nederlandsedigitaledienst.github.io/NeRDS/)

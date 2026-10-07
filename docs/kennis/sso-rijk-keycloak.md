@@ -1,3 +1,7 @@
+---
+description: "Rijksmedewerkers laten inloggen via SSO-Rijk, met de attributen en identifiers die je terugkrijgt."
+---
+
 # SSO-Rijk
 
 SSO-Rijk kan gebruikt worden voor authenticatie van rijksmedewerkers. Binnen het RIG zijn er momenteel tenminste
