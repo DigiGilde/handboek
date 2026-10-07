@@ -44,6 +44,33 @@ probeer dan de andere link.
 Een werkplek reserveren is niet verplicht, maar wel mogelijk. Een werkplek op Beatrixpark reserveer je ook via
 [Beyond Eyes](https://reservations.beyondeyes.com/).
 
+### The Hague Tech
+
+> The Hague Tech (THT)  
+> Stationspostgebouw, Waldorpstraat 5  
+> 2521 CA Den Haag
+
+The Hague Tech is een techcommunity waar we een eigen ruimte hebben. Voor alle vragen over THT kun je terecht bij
+Operations van THT: [operations@thehaguetech.com](mailto:operations@thehaguetech.com).
+
+**Binnenkomen.** De deur van onze ruimte open en sluit je met de app van Salto, waarvoor je een eigen account krijgt.
+Van THT krijg je een link voor de Salto-app en een voor het memberportaal. Heb je die links nog niet, of zijn ze
+verlopen, mail dan Operations. Vraag daarbij ook om de instructie voor de app.
+
+**Reserveren.** Een plek in onze ruimte reserveer je, net als bij HSD, met de
+[Reservation Bot](../kennis/reservation-bot.md) in Mattermost:
+
+1. Zorg dat je in het kanaal `~reserveringen` van het Digilab-team zit. Zit je er nog niet in, vraag dan een collega om
+   je toe te voegen.
+2. Begin een direct bericht met de Reservation Bot en klik op "Reserveer een ruimte".
+3. Je krijgt een link. Die opent de plekken die je kunt reserveren.
+4. Je reserveert per blok. Geef daarbij aan met hoeveel mensen je aan het blok gaat zitten.
+
+Buiten onze kamer staan ook twee losse flexbureaus, die je apart boekt. Waar ze precies staan, kun je aan een collega
+vragen of bij Operations van THT.
+
+**Wifi.** De wifi-wachtwoorden staan vastgepind in het besloten Mattermost-kanaal `~gilde`.
+
 ### HSD
 
 > Campus The Hague Security Delta (HSD)  
