@@ -4,15 +4,27 @@ repos:
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
+      - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
+      # docs/bijdragen-aan-handboek.md is a symlink to CONTRIBUTING.md; a
+      # checkout without symlink support turns it into a file holding the path.
+      - id: destroyed-symlinks
       - id: check-toml
       - id: check-yaml
-        exclude: mkdocs.yml
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
+
+  # check-yaml only sees whether YAML parses, not whether it is well formed.
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+        args: [--strict, -c, .yamllint.yaml]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.49.1
