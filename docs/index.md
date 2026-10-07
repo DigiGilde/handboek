@@ -58,9 +58,19 @@ De eerste stappen hebben we hiervoor al gezet. Zo werken we nu bijvoorbeeld aan 
   hier werken wij met een (technisch prototyping) team aan een oplossing om de nu nog versnipperde communicatie te
   verbeteren en de digitale dienstverlening aan ondernemers te moderniseren. Het doel is om ondernemers beter te bedienen
   en de samenwerking tussen de overheid en ondernemers te versterken.
-- **[Mijn Bureau](https://github.com/MinBZK/mijn-bureau)** is een Europese samenwerking waarin we een proof of concept
-  uitwerking realiseren van Beter SamenWerken functionaliteiten. Dit doen we met behulp van open source software
-  oplossingen die de autonomie van de overheid en Europa in de toekomst moeten versterken.
+- **[RegelRecht](https://regelrecht.rijks.app/)** verkent of wetgeving als uitvoerbare code geschreven kan worden,
+  zodat verschillende organisaties dezelfde wet ook hetzelfde toepassen en burgers kunnen volgen hoe een besluit tot
+  stand komt.
+- **[Digilab](https://digilab.overheid.nl/)** is een broedplaats voor de vernieuwing van de digitale overheid, waar
+  overheidsprofessionals van gemeenten tot ministeries samenwerken aan gedeelde vraagstukken rond interoperabiliteit,
+  vertrouwen en datagovernance. Digilab biedt een soevereine infrastructuur om prototypes te ontwikkelen, los van
+  bestaande institutionele kaders.
+- **[ZAD](https://zad.rijksapp.nl/)** (Zelfservice Applicatie Deployment) is het platform waarop
+  teams hun applicaties zelf in de lucht brengen, in een overheidsdatacenter. Via het selfserviceportaal of de ZAD CLI
+  geef je aan wat je project nodig heeft, zoals een database of inloggen, en ZAD regelt de rest. Ook dit handboek
+  draait erop.
+- **[Wies](https://github.com/RijksICTGilde/wies)** geeft overzicht van wie er binnen ODI waar, waaraan en wanneer
+  werkt. Zo vinden collega's elkaar, en daarmee elkaars kennis en expertise.
 - **[Beslishulp AI-verordening](https://github.com/MinBZK/ai-verordening-beslishulp)** waarbij het vraagstuk centraal
   staat hoe we collega’s kunnen helpen bij de classificaties van een algoritme. Het product is een gestandaardiseerde
   manier van het uitdrukken van een beslisboom, waarbij deze weergegeven kan worden in een gebruiksvriendelijke (online)
@@ -70,15 +80,9 @@ De eerste stappen hebben we hiervoor al gezet. Zo werken we nu bijvoorbeeld aan 
   machine leesbare objecten. In combinatie met de classificatie van het algoritme, helpt AMT je bij de implementatie van
   deze vereisten. De huidige stand van zaken kan worden geëxporteerd in een standaard voor verslaglegging van
   algoritmes.
-- **[RegelRecht](https://regelrecht.rijks.app/)** verkent of wetgeving als uitvoerbare code geschreven kan worden,
-  zodat verschillende organisaties dezelfde wet ook hetzelfde toepassen en burgers kunnen volgen hoe een besluit tot
-  stand komt.
-- **[Wies](https://github.com/RijksICTGilde/wies)** geeft overzicht van wie er binnen ODI waar, waaraan en wanneer
-  werkt. Zo vinden collega's elkaar, en daarmee elkaars kennis en expertise.
-- **[Digilab](https://digilab.overheid.nl/)** is een broedplaats voor de vernieuwing van de digitale overheid, waar
-  overheidsprofessionals van gemeenten tot ministeries samenwerken aan gedeelde vraagstukken rond interoperabiliteit,
-  vertrouwen en datagovernance. Digilab biedt een soevereine infrastructuur om prototypes te ontwikkelen, los van
-  bestaande institutionele kaders.
+- **[Mijn Bureau](https://github.com/MinBZK/mijn-bureau)** is een Europese samenwerking waarin we een proof of concept
+  uitwerking realiseren van Beter SamenWerken functionaliteiten. Dit doen we met behulp van open source software
+  oplossingen die de autonomie van de overheid en Europa in de toekomst moeten versterken.
 
 Het Digi Gilde is enthousiast en met toewijding bezig om samen met beleidsmakers, juristen, bestuurders en andere
 experts een succes te maken van bovenstaande projecten. En wij hebben er zin in om meer projecten op te gaan pakken
