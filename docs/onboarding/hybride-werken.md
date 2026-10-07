@@ -1,3 +1,7 @@
+---
+description: "Waar je kunt werken, op kantoor of thuis, en hoe je een werkplek reserveert."
+---
+
 # Hybride werken
 
 De meeste collega's werken hybride. Dat betekent dat je zowel op kantoor als thuis werkt. Het kan zijn dat je voor een

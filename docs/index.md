@@ -1,21 +1,12 @@
 ---
-hide:
-  - navigation
+# The home page opens with a hero that carries this title.
+hero: true
 ---
 
 # Het Digi Handboek
 
-Welkom bij het Digi Handboek! Hier vind je alle informatie die je nodig hebt om goed te starten bij het Digi Gilde
-(onderdeel van [ODI](https://www.rijksorganisatieodi.nl/)).
-
-In dit handboek vind je:
-
-- Uitleg over hoe we [werken en samenwerken](werkwijze/principes.md)
-- Praktische informatie voor je [eerste dagen](onboarding/eerste-dagen.md)
-- Tips voor het opzetten van je [digitale werkplek](onboarding/dev-machine.md)
-
 We hebben deze centrale plek gemaakt zodat je snel de informatie vindt die je nodig hebt. Dit is in aanvulling op de
-RIG Gids en informatie op het Rijksportaal.
+informatie op het Rijksportaal.
 
 ## Over het Digi Gilde
 

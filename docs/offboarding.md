@@ -1,3 +1,7 @@
+---
+description: "Wat je regelt voordat je het Digi Gilde verlaat: apparaten inleveren en accounts opzeggen."
+---
+
 # Offboarding
 
 We vinden het jammer om je te zien gaan! Maar als je dat dan doet, is dit wat je niet moet vergeten ;)

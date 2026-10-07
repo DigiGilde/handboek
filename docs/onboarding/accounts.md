@@ -1,3 +1,7 @@
+---
+description: "De accounts die je nodig hebt, zoals Mattermost, Webex, Tuple en GitHub, en hoe je ze aanmaakt."
+---
+
 # Accounts
 
 ## Mattermost chat

@@ -2,10 +2,9 @@
 
 Allereerst, bedankt dat je de tijd wilt nemen om een bijdrage te leveren ❤️
 
-We waarderen alle soorten bijdragen enorm. Zie de [inhoudsopgave](#inhoudsopgave) voor verschillende manieren waarop je
-kan bijdragen aan het Digi Handboek. Zorg ervoor dat je de relevante hoofdstukken even leest voordat je een bijdrage
-levert. Het zal het voor het team een stuk makkelijker maken en de ervaring voor alle betrokkenen soepeler laten
-verlopen. We kijken uit naar je bijdrage!
+We waarderen alle soorten bijdragen enorm. Hieronder lees je op welke manieren je kan bijdragen aan het Digi Handboek.
+Zorg ervoor dat je de relevante hoofdstukken even leest voordat je een bijdrage levert. Het zal het voor het team een
+stuk makkelijker maken en de ervaring voor alle betrokkenen soepeler laten verlopen. We kijken uit naar je bijdrage!
 
 > **Opmerking**
 >
@@ -14,14 +13,6 @@ verlopen. We kijken uit naar je bijdrage!
 > Het begin is gemaakt en het Digi Gilde team is nog lerende om hier optimaal invulling aan te geven.
 > Hierdoor kan het iets langer duren voordat er wordt gereageerd op suggesties of toevoegingen.
 > We werken aan een duidelijk proces om hier goed mee om te gaan.
-
-## Inhoudsopgave
-
-- [Code of Conduct](#code-of-conduct)
-- [Ik heb een vraag](#ik-heb-een-vraag)
-- [Ik wil iets bijdragen](#ik-wil-iets-bijdragen)
-- [Ik wil een fout of bug melden](#ik-wil-een-fout-of-bug-melden)
-- [Lokaal ontwikkelen](#lokaal-ontwikkelen)
 
 ## Code of Conduct
 
