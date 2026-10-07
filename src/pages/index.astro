@@ -1,0 +1,43 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { navigation, pageHref } from '../navigation';
+
+const entry = await getEntry('handboek', 'index');
+if (!entry) throw new Error('docs/index.md is missing');
+const { Content, remarkPluginFrontmatter } = await render(entry);
+---
+
+<Layout>
+    <nldd-hero id="inhoud">
+        <nldd-title color="inherit" size="1" text={remarkPluginFrontmatter.title} heading-level="1" />
+        <nldd-spacer size="16" />
+        <nldd-rich-text color="inherit">
+            <p>Alles wat je nodig hebt om goed te starten en te werken bij het Digi Gilde.</p>
+        </nldd-rich-text>
+    </nldd-hero>
+
+    <nldd-simple-section background="tinted">
+        <nldd-title slot="header" size="2" text="Wat je hier vindt" heading-level="2" />
+        <nldd-collection layout="grid" item-width="280px">
+            {
+                navigation.map((section) => (
+                    <nldd-card>
+                        <nldd-container padding="16" gap="8">
+                            <nldd-title size="4" text={section.title} heading-level="3" />
+                            {section.pages.map((page) => (
+                                <nldd-link href={pageHref(page.id)} text={page.title} />
+                            ))}
+                        </nldd-container>
+                    </nldd-card>
+                ))
+            }
+        </nldd-collection>
+    </nldd-simple-section>
+
+    <nldd-simple-section>
+        <nldd-rich-text data-pagefind-body>
+            <Content />
+        </nldd-rich-text>
+    </nldd-simple-section>
+</Layout>

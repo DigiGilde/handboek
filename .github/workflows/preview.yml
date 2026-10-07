@@ -22,48 +22,35 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - name: Set preview site URL
         if: github.event.action != 'closed'
         run: echo "SITE_URL=https://plak.rijks.app/digigilde/handboek/_preview/pr-${{ github.event.number }}/" >> "$GITHUB_ENV"
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-        if: github.event.action != 'closed'
-      - uses: actions/cache@v6
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         if: github.event.action != 'closed'
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - name: Install uv
-        if: github.event.action != 'closed'
-        uses: astral-sh/setup-uv@v7
-        with:
-          enable-cache: true
-          cache-dependency-glob: "uv.lock"
-      - name: Set up Python
-        if: github.event.action != 'closed'
-        run: uv python install
+          node-version-file: .tool-versions
+          cache: npm
       - name: Install dependencies
         if: github.event.action != 'closed'
-        run: uv sync --locked --no-dev
+        run: npm ci --omit=dev
       - name: Build preview
         if: github.event.action != 'closed'
-        run: uv run mkdocs build
-      - uses: actions/upload-artifact@v7
+        run: npm run build
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: github.event.action != 'closed'
         with:
           name: digihandboek-preview-pr-${{github.event.number}}
-          path: ./site/
+          path: ./dist/
       # A fork gets no OIDC token; bot PRs are skipped by the action itself.
       - name: Publish or clean up preview
         if: github.event.pull_request.head.repo.full_name == github.repository
         uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
         with:
           site: digigilde/handboek
-          dist-path: site
+          dist-path: dist
           preview-ref: pr-${{ github.event.number }}
           teardown: ${{ github.event.action == 'closed' }}
           environment: preview

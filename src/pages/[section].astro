@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { pageHref, sections, type NavSection } from '../navigation';
+
+export function getStaticPaths() {
+    return sections.map((section) => ({ params: { section: section.slug }, props: { section } }));
+}
+
+interface Props {
+    section: NavSection;
+}
+
+const { section } = Astro.props;
+
+const entries = await getCollection('handboek');
+
+// docs/<slug>/index.md (entry id <slug>), where it exists, opens the overview with its own title.
+const intro = entries.find((entry) => entry.id === section.slug);
+const Intro = intro ? (await render(intro)).Content : undefined;
+
+const pages = section.pages.map((page) => ({
+    ...page,
+    description: page.description ?? entries.find((entry) => entry.id === page.id)?.data.description,
+}));
+---
+
+<Layout title={section.title} breadcrumbs={[{ text: section.title }]}>
+    <nldd-one-third-two-thirds-section id="inhoud">
+        {
+            Intro ? (
+                <nldd-rich-text slot="left" data-pagefind-body>
+                    <Intro />
+                </nldd-rich-text>
+            ) : (
+                <nldd-title slot="left" size="1" text={section.title} heading-level="1" />
+            )
+        }
+        <nldd-list slot="right" type="navigation" appearance="box-tinted" aria-label={section.title}>
+            {
+                pages.map((page) => (
+                    <nldd-list-item href={pageHref(page.id)}>
+                        <nldd-text-cell text={page.title} supporting-text={page.description} />
+                        <nldd-icon-cell icon="chevron-right" size="20" />
+                    </nldd-list-item>
+                ))
+            }
+        </nldd-list>
+    </nldd-one-third-two-thirds-section>
+</Layout>

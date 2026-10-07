@@ -1,0 +1,172 @@
+---
+import '@nldd/design-system/styles';
+import '../styles/site.css';
+import favicon from '@nldd/design-system/favicon.svg?url';
+import touchIcon from '@nldd/design-system/touch-icon.png?url';
+
+export interface Crumb {
+    text: string;
+    href?: string;
+}
+
+interface Props {
+    title?: string;
+    description?: string;
+    breadcrumbs?: Crumb[];
+    // Date of the last commit to the page, shown in the footer.
+    updated?: Date;
+    // The page has a table of contents; on a narrow screen the top bar opens it.
+    toc?: boolean;
+    // Where the back button in the top bar leads; the home page by default.
+    back?: { text: string; href: string };
+}
+
+const {
+    title,
+    description = 'In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld.',
+    breadcrumbs = [],
+    updated,
+    toc,
+    back,
+} = Astro.props;
+const siteTitle = 'Digi Handboek';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const home = `${base}/`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === home;
+const dateFormat = { timeZone: 'Europe/Amsterdam' } as const;
+// The sv-SE locale writes a date as YYYY-MM-DD, in the Dutch time zone.
+const updatedIso = updated?.toLocaleDateString('sv-SE', dateFormat);
+const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateStyle: 'long' });
+---
+
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title ? `${title} · ${siteTitle}` : siteTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <link rel="icon" type="image/svg+xml" href={favicon} />
+        <link rel="apple-touch-icon" href={touchIcon} />
+        <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
+    </head>
+    <body>
+        <nldd-app-view>
+            <nldd-page>
+                <nldd-skip-link slot="header" text="Direct naar de inhoud" href="#inhoud">
+                    <nldd-top-navigation-bar
+                        logo-title="Rijksorganisatie voor Ontwikkeling, Digitalisering en Innovatie"
+                        logo-subtitle="Ministerie van Binnenlandse Zaken en Koninkrijksrelaties"
+                        logo-href={home}
+                        website-title={siteTitle}
+                        website-href={home}
+                        back-href={isHome ? undefined : (back?.href ?? home)}
+                        back-text={isHome ? undefined : (back?.text ?? 'Startpagina')}
+                    >
+                        <nldd-menu-bar slot="utility" accessible-label="Hulpmenu">
+                            {
+                                toc && (
+                                    <nldd-menu-bar-item
+                                        id="sidebar-open"
+                                        text="Op deze pagina"
+                                        icon="bullet-list"
+                                        content-priority="icon"
+                                        haspopup="dialog"
+                                        hidden
+                                    />
+                                )
+                            }
+                            <nldd-menu-bar-item
+                                id="search-open"
+                                text="Zoeken"
+                                accessible-label="Zoeken (sneltoets Control+K)"
+                                icon="search"
+                                content-priority="icon"
+                                haspopup="dialog"
+                            />
+                        </nldd-menu-bar>
+                    </nldd-top-navigation-bar>
+                </nldd-skip-link>
+
+                <slot />
+
+                <nldd-page-footer slot="footer">
+                    {
+                        breadcrumbs.length > 0 && (
+                            <nldd-breadcrumbs slot="breadcrumbs">
+                                <nldd-breadcrumbs-item href={home} text={siteTitle} />
+                                {breadcrumbs.map((crumb, index) => (
+                                    <nldd-breadcrumbs-item
+                                        href={crumb.href}
+                                        text={crumb.text}
+                                        current={index === breadcrumbs.length - 1 || undefined}
+                                    />
+                                ))}
+                            </nldd-breadcrumbs>
+                        )
+                    }
+                    <nldd-page-footer-legal-bar slot="legal-bar">
+                        <nldd-page-footer-legal-bar-item slot="start">
+                            {/* The item lays out its children apart; one span keeps the spaces. */}
+                            <span>
+                                Digi Gilde
+                                {
+                                    updated && (
+                                        <>
+                                            {' '}
+                                            · Deze pagina is voor het laatst bijgewerkt op{' '}
+                                            <time datetime={updatedIso}>{updatedText}</time>
+                                        </>
+                                    )
+                                }
+                            </span>
+                        </nldd-page-footer-legal-bar-item>
+                        <nldd-page-footer-legal-bar-item slot="end" href={`${base}/contact/`} text="Contact" />
+                        <nldd-page-footer-legal-bar-item
+                            slot="end"
+                            href={`${base}/over/toegankelijkheid/`}
+                            text="Toegankelijkheid"
+                        />
+                        <nldd-page-footer-legal-bar-item slot="end" href={`${base}/over/licentie/`} text="Licentie" />
+                        <nldd-page-footer-legal-bar-item slot="end" href={`${base}/over/`} text="Over deze website" />
+                    </nldd-page-footer-legal-bar>
+                </nldd-page-footer>
+            </nldd-page>
+        </nldd-app-view>
+
+        <nldd-window
+            id="search-window"
+            accessible-label="Zoeken in het Digi Handboek"
+            centered
+            top="var(--semantics-overlays-inset)"
+            width="min(48rem, 92vw)"
+            data-base={import.meta.env.BASE_URL}
+        >
+            <nldd-page>
+                <nldd-container slot="header" padding="16">
+                    <nldd-search-field id="search-query" placeholder="Zoek in het Digi Handboek" />
+                </nldd-container>
+                <nldd-container padding-inline="16">
+                    <nldd-text id="search-status" size="sm" color="secondary" role="status" hidden />
+                </nldd-container>
+                <nldd-container id="search-output" padding="16" padding-top="8" hidden>
+                    <nldd-list id="search-results" type="navigation" aria-label="Zoekresultaten">
+                        <nldd-inline-dialog
+                            slot="empty"
+                            icon="search"
+                            text="Geen resultaten"
+                            supporting-text="Probeer een ander zoekwoord."
+                        />
+                    </nldd-list>
+                </nldd-container>
+            </nldd-page>
+        </nldd-window>
+
+        <script>
+            import '../scripts/nldd';
+            import '../scripts/search';
+        </script>
+    </body>
+</html>

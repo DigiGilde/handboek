@@ -1,0 +1,9 @@
+/*
+ * The sidebar of nldd-sidebar-section is a tinted box with a border, and the
+ * component has no attribute to leave the box out (checked against 0.8.95).
+ * Pending a variant in the design system, this sets its component tokens.
+ */
+nldd-sidebar-section {
+    --components-sidebar-section-sidebar-box-background-color: var(--semantics-surfaces-base-background-color);
+    --components-sidebar-section-sidebar-box-highlight-border-color: transparent;
+}
