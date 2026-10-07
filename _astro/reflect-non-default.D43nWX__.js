@@ -1,1 +1,0 @@
-function e(e){let t=typeof e==`number`?e=>Number(e):e=>e;return{fromAttribute:n=>n===null?e:t(n),toAttribute:t=>t===e?null:String(t)}}export{e as t};
