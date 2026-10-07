@@ -84,6 +84,20 @@ Dit haalt elke externe link op en faalt op een pagina die weg is (404 of 410) of
 het intranet van de Rijksoverheid zijn buiten het Rijksnetwerk niet te controleren en worden alleen gemeld. Dezelfde
 controle draait elke maandag op GitHub.
 
+#### De container testen
+
+Productie draait als nginx-container op ZAD, op [https://digihandboek.rijks.app/](https://digihandboek.rijks.app/).
+GitHub Pages verwijst door naar dat adres. Bouw en start de container lokaal met Podman (of Docker):
+
+```bash
+npm run build
+podman build --platform linux/amd64 -f container/Containerfile -t digi-handboek .
+podman run --rm --read-only -p 8080:8080 digi-handboek
+```
+
+De site staat dan op [http://localhost:8080/](http://localhost:8080/), met dezelfde headers en Content-Security-Policy
+als in productie.
+
 #### Pagina's toevoegen
 
 De pagina's staan als Markdown in de map [docs](docs). Het menu staat in [src/navigation.ts](src/navigation.ts): voeg
