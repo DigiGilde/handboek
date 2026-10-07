@@ -48,7 +48,9 @@ Je kan je vragen ook altijd stellen door een mail te sturen naar
 Er zijn verschillende manieren waarop je kan bijdragen. Zie hieronder de mogelijkheden.
 
 > Wanneer je bijdraagt aan dit project, moet je ermee akkoord gaan dat je 100% van de inhoud hebt geschreven, dat je de
-> benodigde rechten op de inhoud hebt en dat de inhoud die je bijdraagt mag worden geleverd onder de Code of Conduct.
+> benodigde rechten op de inhoud hebt en dat de inhoud die je bijdraagt mag worden geleverd onder de licenties van dit
+> project: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.nl) voor teksten en
+> [EUPL-1.2](https://eupl.eu/1.2/nl/) voor code.
 
 ### Ik wil een suggestie doen of een verbetering voorstellen
 
