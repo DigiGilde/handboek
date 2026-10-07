@@ -28,7 +28,7 @@ verlopen. We kijken uit naar je bijdrage!
 Dit project en iedereen die eraan deelneemt, valt onder de
 [Code of Conduct](https://github.com/DigiGilde/handboek?tab=coc-ov-file#readme).
 Door deel te nemen, wordt van je verwacht dat je je aan deze code houdt. Meld onacceptabel gedrag
-aan **[RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl)**.
+aan **[digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl)**.
 
 ## Ik heb een vraag
 
@@ -50,7 +50,7 @@ aanmaken.
 ### Stel een vraag via mail
 
 Je kan je vragen ook altijd stellen door een mail te sturen naar
-**[RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl)**.
+**[digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl)**.
 
 ## Ik wil iets bijdragen
 

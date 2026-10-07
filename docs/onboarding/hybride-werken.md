@@ -35,7 +35,7 @@ probeer dan de andere link.
 
 - [Facilitair portaal FMH](https://fmhn.facilitor.nl/?sso=FMH)
 - [Beyond Eyes](https://reservations.beyondeyes.com/) (inlog info op te vragen via
-  [RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl))
+  [digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl))
 
 Een werkplek reserveren is niet verplicht, maar wel mogelijk. Een werkplek op Beatrixpark reserveer je ook via
 [Beyond Eyes](https://reservations.beyondeyes.com/).
@@ -47,8 +47,8 @@ Een werkplek reserveren is niet verplicht, maar wel mogelijk. Een werkplek op Be
 > 2595 AN Den Haag
 
 HSD is een locatie waar ODI een kantoor- en vergaderruimte heeft. Wil je daar werken, dan kun je dat
-via [RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl) regelen. Bij HSD hebben we ook de mogelijkheden om extra
-vergaderruimtes te huren.
+via [digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl) regelen. Bij HSD hebben we ook de mogelijkheden
+om extra vergaderruimtes te huren.
 
 Een werkplek of vergaderruimte reserveer je via de `reservation bot` op Mattermost (zie de
 [Reservation Bot](../kennis/reservation-bot.md) uitleg).

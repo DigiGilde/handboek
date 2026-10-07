@@ -56,4 +56,4 @@ uv run mkdocs serve
 ## Vragen?
 
 Maak een [issue](https://github.com/DigiGilde/handboek/issues/new/choose) aan op GitHub. Of stuur een e-mail naar
-[RIG@rijksoverheid.nl](mailto:RIG@rijksoverheid.nl).
+[digigilde@rijksoverheid.nl](mailto:digigilde@rijksoverheid.nl).
