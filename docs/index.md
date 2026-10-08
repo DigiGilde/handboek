@@ -22,6 +22,9 @@ door een team van product owners, designers en engineers. De DevOps-manier van w
 nauw samenwerken) staat hierbij centraal. We werken in een context van een maatschappelijke of overheidsuitdaging. Dit
 doen we samen met beleidsmakers, juristen, bestuurders en andere experts.
 
+Wie er in het Digi Gilde werkt en aan welke opdracht, zie je in
+[Wies](https://wies.rijksorganisatieodi.nl/?merk=1c151b4d-5a38-4945-a9b2-fbd020a53a44).
+
 ## Wat we doen
 
 Hiervoor bieden wij de volgende dienstverlening aan:
