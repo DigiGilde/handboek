@@ -31,4 +31,4 @@ In je eerste dagen zijn er een aantal dingen die je kunt doen om goed van start 
 Daarnaast kun je meer lezen over [onze werkwijze](../werkwijze/principes.md), enkele tips:
 
 - [Onze principes](../werkwijze/principes.md)
-- [Nederlandse Richtlijn Digitale Systemen (NeRDS)](https://nederlandsedigitaledienst.github.io/NeRDS/)
+- [Nederlandse Richtlijn Digitale Systemen (NeRDS)](https://nerds.digitaledienst.overheid.nl/)

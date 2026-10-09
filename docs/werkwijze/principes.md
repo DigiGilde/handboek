@@ -17,10 +17,10 @@ zijn voor hen.
 1. We lezen anderen niet de les. Wel laten we zien hoe iets kan en helpen we anderen om dit voor elkaar te krijgen.
 1. Samenwerking is essentieel voor ons succes. We zoeken actief de samenwerking met zowel publieke als private partners.
 
-Verder houden wij ons ook aan [de NeRDS principes](https://nederlandsedigitaledienst.github.io/NeRDS/) die beschreven
+Verder houden wij ons ook aan [de NeRDS principes](https://nerds.digitaledienst.overheid.nl/) die beschreven
 staan in de Nederlandse Richtlijn Digitale Systemen. Naast de principes staan hier ook een set standaarden en praktische
 hulpmiddelen voor het verantwoord ontwikkelen, inkopen en gebruiken van digitale systemen binnen de Nederlandse
 overheid.
 
 [Nederlandse Richtlijn Digitale Systemen
-(NeRDS)](https://nederlandsedigitaledienst.github.io/NeRDS/ "Open de NeRDS site")
+(NeRDS)](https://nerds.digitaledienst.overheid.nl/ "Open de NeRDS site")
