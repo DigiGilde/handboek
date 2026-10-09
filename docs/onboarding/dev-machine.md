@@ -37,6 +37,24 @@ Via Citrix krijg je toegang tot jouw digitale Rijkswerkplek.
 
 - [Citrix workspace](https://www.citrix.com/downloads/workspace-app/)
 - [Flex2Rijk](https://www.flex2rijk.nl/) om in te loggen en Citrix te configureren
+- [Flex2Rijk CLI](https://github.com/DigiGilde/flex2rijk) om vanuit de terminal in te loggen op Flex2Rijk en direct
+  Citrix Workspace te openen. Wij gebruiken een fork van de tool van Tijn Schouten
+  ([tijnschouten/flex2rijk](https://github.com/tijnschouten/flex2rijk)), met security-verbeteringen. Installeer hem
+  vanaf GitHub:
+
+    ```shell
+    uv tool install git+https://github.com/DigiGilde/flex2rijk
+    ```
+
+    Sla daarna je gebruikersnaam en wachtwoord op in je Keychain:
+
+    ```shell
+    flex2rijk --setup
+    ```
+
+    Inloggen gaat met `flex2rijk`. Kies in het macOS-venster **Sta toe**. Met **Sta altijd toe** kan elk proces op je
+    Mac je wachtwoord voortaan zonder vragen uitlezen. Meer opties staan in de
+    [README](https://github.com/DigiGilde/flex2rijk#readme).
 
 ## Communicatie
 
