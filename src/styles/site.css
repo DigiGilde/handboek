@@ -1,4 +1,19 @@
 /*
+ * The design system keeps the page hidden while any element on it is undefined,
+ * custom elements the site does not define included (checked against 0.8.95).
+ * So this waits for our own components only: nldd.ts defines them all in the
+ * one task that evaluates it, nldd-app-view first, and loads the code viewer on
+ * its own.
+ */
+body:has(:not(:defined)) {
+    opacity: 1;
+}
+
+body:has(nldd-app-view:not(:defined), nldd-code-viewer:not(:defined)) {
+    opacity: 0;
+}
+
+/*
  * The sidebar of nldd-sidebar-section is a tinted box with a border, and the
  * component has no attribute to leave the box out (checked against 0.8.95).
  * Pending a variant in the design system, this sets its component tokens.
