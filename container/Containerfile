@@ -1,4 +1,4 @@
-FROM ghcr.io/rijksictgilde/nginx-base:2026.10.6@sha256:48446707e25186e734c1e83f4c29d47d4a5d98a7029aa936eb98c2850b135f72
+FROM ghcr.io/rijksictgilde/nginx-base:2026.10.11@sha256:cae27468d0e7a61356e1052c65a7baff541be9a35951116ac35c02f0d5178c3a
 
 COPY container/nginx.conf /etc/nginx/nginx.conf
 COPY container/security-headers.conf /etc/nginx/security-headers.conf
