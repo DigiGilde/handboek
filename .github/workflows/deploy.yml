@@ -106,7 +106,7 @@ jobs:
         env:
           SITE_URL: https://plak.rijks.app/digigilde/handboek/
       - name: Publish copy to Plak
-        uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
+        uses: DigiGilde/plak/actions/publish@792a00fc60e47aed50db761dd93d62d8d483bd47 # v2026.10.7
         with:
           site: digigilde/handboek
           dist-path: dist
