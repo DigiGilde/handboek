@@ -47,7 +47,7 @@ jobs:
       # A fork gets no OIDC token; bot PRs are skipped by the action itself.
       - name: Publish or clean up preview
         if: github.event.pull_request.head.repo.full_name == github.repository
-        uses: DigiGilde/plak/actions/publish@20b57eba2a96eb0c5a37d07b6d33de1feeac2873 # v2026.10.4
+        uses: DigiGilde/plak/actions/publish@792a00fc60e47aed50db761dd93d62d8d483bd47 # v2026.10.7
         with:
           site: digigilde/handboek
           dist-path: dist
