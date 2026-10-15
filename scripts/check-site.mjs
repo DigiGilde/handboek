@@ -53,7 +53,7 @@ const walk = (file) => {
     }
 };
 const entry = readFileSync(path.join(root, 'src/scripts/nldd.ts'), 'utf8');
-for (const [, subpath] of entry.matchAll(/import '@nldd\/design-system\/([^']+)';/g)) {
+for (const [, subpath] of entry.matchAll(/import[ (]'@nldd\/design-system\/([^']+)'/g)) {
     const target = pkg.exports[`./${subpath}`];
     const file = typeof target === 'string' ? target : target?.default;
     if (!file) problems.push(`src/scripts/nldd.ts: @nldd/design-system/${subpath} is not an export of the package`);
