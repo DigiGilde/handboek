@@ -46,6 +46,7 @@ export const navigation: NavSection[] = [
         pages: [
             { title: 'SSO Rijk', id: 'kennis/sso-rijk-keycloak' },
             { title: 'Reservation Bot', id: 'kennis/reservation-bot' },
+            { title: 'Werkbezoek Portugal oktober 2026', id: 'kennis/werkbezoeken/portugal-oktober-2026' },
         ],
     },
 ];
