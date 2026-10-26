@@ -19,7 +19,7 @@
     "@astrojs/markdown-satteri": "^0.4.3",
     "@astrojs/sitemap": "^3.7.4",
     "@nldd/design-system": "^0.8.95",
-    "astro": "^7.3.8",
+    "astro": "^7.4.2",
     "pagefind": "^1.5.2"
   },
   "devDependencies": {
