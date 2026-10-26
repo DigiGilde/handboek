@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.3",
     "@astrojs/sitemap": "^3.7.4",
-    "@nldd/design-system": "^0.8.95",
+    "@nldd/design-system": "^0.10.0",
     "astro": "^7.3.8",
     "pagefind": "^1.5.2"
   },
