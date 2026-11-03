@@ -85,7 +85,7 @@ jobs:
           folder: github-pages
           clean: true
 
-  plak:
+  toon:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -101,13 +101,13 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --omit=dev
-      - name: Build site for Plak
+      - name: Build site for Toon
         run: npm run build
         env:
-          SITE_URL: https://plak.rijks.app/digigilde/handboek/
-      - name: Publish copy to Plak
-        uses: DigiGilde/plak/actions/publish@792a00fc60e47aed50db761dd93d62d8d483bd47 # v2026.10.7
+          SITE_URL: https://toon.rijks.app/digigilde/handboek/
+      - name: Publish copy to Toon
+        uses: DigiGilde/toon/actions/publish@8da2d7a7be607cd708471df5c12963f667faedec # v2026.11.2.1
         with:
           site: digigilde/handboek
           dist-path: dist
-          environment: plak
+          environment: toon
