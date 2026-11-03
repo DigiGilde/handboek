@@ -15,7 +15,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: plak-preview-${{ github.event.number }}
+  group: toon-preview-${{ github.event.number }}
   cancel-in-progress: true
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
       - name: Set preview site URL
         if: github.event.action != 'closed'
-        run: echo "SITE_URL=https://plak.rijks.app/digigilde/handboek/_preview/pr-${{ github.event.number }}/" >> "$GITHUB_ENV"
+        run: echo "SITE_URL=https://toon.rijks.app/digigilde/handboek/_preview/pr-${{ github.event.number }}/" >> "$GITHUB_ENV"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         if: github.event.action != 'closed'
         with:
@@ -47,7 +47,7 @@ jobs:
       # A fork gets no OIDC token; bot PRs are skipped by the action itself.
       - name: Publish or clean up preview
         if: github.event.pull_request.head.repo.full_name == github.repository
-        uses: DigiGilde/plak/actions/publish@792a00fc60e47aed50db761dd93d62d8d483bd47 # v2026.10.7
+        uses: DigiGilde/toon/actions/publish@8da2d7a7be607cd708471df5c12963f667faedec # v2026.11.2.1
         with:
           site: digigilde/handboek
           dist-path: dist
