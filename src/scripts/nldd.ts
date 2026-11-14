@@ -1,12 +1,5 @@
 // Every nldd-* component the site uses, registered from this one module.
-//
-// nldd-app-view must be defined before nldd-page: a page that upgrades first
-// finds no scroll-mode provider, stays in nested mode and swallows the mouse
-// wheel (checked against @nldd/design-system 0.8.95). ES modules evaluate in
-// import order, but only within one entry: component imports in a page's own
-// <script> end up in shared chunks that the bundler may evaluate earlier. So
-// pages import nothing from the design system themselves.
-import '@nldd/design-system/app-view';
+import '@nldd/design-system/shell';
 import '@nldd/design-system/page';
 import '@nldd/design-system/breadcrumbs';
 import '@nldd/design-system/button';
