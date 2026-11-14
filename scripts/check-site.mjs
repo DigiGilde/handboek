@@ -37,7 +37,10 @@ for (const module of manifest.modules) {
     }
 }
 const icons = new Set([...iconRegistry.keys(), ...Object.keys(aliases)]);
-const globalAttribute = /^(id|class|slot|hidden|role|style|tabindex|lang|title|aria-[a-z-]+|data-[a-z-]+)$/;
+// sidebar-section-only is declared by nldd-sidebar-section, but set on the
+// elements inside it.
+const globalAttribute =
+    /^(id|class|slot|hidden|role|style|tabindex|lang|title|aria-[a-z-]+|data-[a-z-]+|sidebar-section-only)$/;
 const iconAttribute = /^(icon|start-icon|end-icon)$/;
 
 // Registration: follow the imports of src/scripts/nldd.ts through the package.
