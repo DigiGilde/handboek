@@ -4,7 +4,6 @@ import '@nldd/design-system/page';
 import '@nldd/design-system/breadcrumbs';
 import '@nldd/design-system/button';
 import '@nldd/design-system/card';
-import '@nldd/design-system/code-viewer';
 import '@nldd/design-system/cell';
 import '@nldd/design-system/collection';
 import '@nldd/design-system/container';
@@ -31,3 +30,9 @@ import '@nldd/design-system/text-cell';
 import '@nldd/design-system/title';
 import '@nldd/design-system/top-navigation-bar';
 import '@nldd/design-system/window';
+
+// The code viewer brings CodeMirror, about half of all the JavaScript, and only
+// a few pages have a code block.
+if (document.querySelector('nldd-code-viewer')) {
+    import('@nldd/design-system/code-viewer');
+}
