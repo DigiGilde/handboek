@@ -97,11 +97,12 @@ const breadcrumbs = section
     <Section {...(section ? { id: 'content-section', 'sidebar-label': 'Op deze pagina' } : {})}>
         {
             hasToc && (
-                <nldd-container slot="sidebar" padding="16" lg-padding-top="0" gap="8">
-                    <nldd-text id="toc-title" size="display-4">Op deze pagina</nldd-text>
-                    <nldd-list id="toc" type="navigation" aria-label="Op deze pagina" dividers="never">
+                <nldd-container slot="sidebar" padding="16" padding-bottom="8">
+                    <nldd-title sidebar-section-only="expanded" size="display-5" text="Op deze pagina" heading-level="2" />
+                    <nldd-spacer sidebar-section-only="expanded" size="8" />
+                    <nldd-list id="toc" type="navigation" appearance="simple" dividers="never" accessible-label="Op deze pagina">
                         {toc.map((heading) => (
-                            <nldd-list-item href={`#${heading.slug}`} size="sm">
+                            <nldd-list-item href={`#${heading.slug}`} current-type="location" size="sm">
                                 {heading.depth === 3 && <nldd-spacer-cell size="16" />}
                                 <nldd-text-cell text={heading.text} />
                             </nldd-list-item>
@@ -138,16 +139,12 @@ const breadcrumbs = section
 <script>
     // While the sidebar is collapsed into its sheet, a button in the top bar
     // opens it.
-    type SidebarSection = HTMLElement & { show(): void; hide(): void };
+    type SidebarSection = HTMLElement & { show(): void };
     const section = document.getElementById('content-section') as SidebarSection | null;
     const opener = document.getElementById('sidebar-open');
-    // In the sheet its title bar already says "Op deze pagina".
-    const tocTitle = document.getElementById('toc-title');
     if (section && opener) {
         const sync = () => {
-            const collapsed = section.hasAttribute('collapsed');
-            opener.hidden = !collapsed;
-            if (tocTitle) tocTitle.hidden = collapsed;
+            opener.hidden = !section.hasAttribute('collapsed');
         };
         // collapse-change fires before the component reflects `collapsed`, so
         // the attribute is watched instead.
@@ -156,8 +153,6 @@ const breadcrumbs = section
         opener.addEventListener('click', () => section.show());
         section.addEventListener('open', () => opener.setAttribute('expanded', ''));
         section.addEventListener('close', () => opener.removeAttribute('expanded'));
-        // A jump to a heading closes the sheet, so the text is in view.
-        document.getElementById('toc')?.addEventListener('click', () => section.hide());
     }
 
     // The table of contents marks the section being read: the last heading
