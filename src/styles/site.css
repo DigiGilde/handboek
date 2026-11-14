@@ -1,0 +1,28 @@
+/*
+ * The design system keeps the page hidden while any element on it is undefined,
+ * custom elements the site does not define included (checked against 0.23.0).
+ * So this waits for our own components only: nldd.ts defines them all in the
+ * one task that evaluates it. The code viewer loads on its own and is not
+ * waited for. These rules match the specificity of the design system's own, so
+ * this stylesheet must load after it.
+ */
+body:has(:not(:defined)) {
+    opacity: 1;
+}
+
+body:has(nldd-shell:not(:defined)) {
+    opacity: 0;
+}
+
+/* Until it is defined, a code block shows its plain text in the viewer's box. */
+nldd-code-viewer:not(:defined) {
+    display: block;
+    overflow-x: auto;
+    padding: var(--primitives-space-16);
+    border-radius: var(--semantics-surfaces-corner-radius);
+    background-color: var(--semantics-surfaces-tinted-background-color);
+    box-shadow: inset 0 0 0 var(--semantics-surfaces-highlight-border-width)
+        var(--semantics-surfaces-tinted-highlight-border-color);
+    font: var(--primitives-font-monospace-sm-regular-snug);
+    white-space: pre;
+}
