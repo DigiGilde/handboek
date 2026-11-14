@@ -91,10 +91,25 @@ const breadcrumbs = section
     description={entry.data.description}
     breadcrumbs={breadcrumbs}
     updated={updated}
-    toc={hasToc}
     back={section && { text: section.title, href: sectionHref(section) }}
 >
-    <Section {...(section ? { id: 'content-section', 'sidebar-label': 'Op deze pagina' } : {})}>
+    <Section id="inhoud" {...(section ? { 'sidebar-label': 'Op deze pagina' } : {})}>
+        <nldd-title><h1>{title}</h1></nldd-title>
+        {
+            hasToc && (
+                <>
+                    <nldd-spacer sidebar-section-only="collapsed" size="16" />
+                    <nldd-button
+                        id="toc-open"
+                        sidebar-section-only="collapsed"
+                        appearance="secondary"
+                        start-icon="bullet-list"
+                        text="Op deze pagina"
+                        popup-type="dialog"
+                    />
+                </>
+            )
+        }
         {
             hasToc && (
                 <nldd-container slot="sidebar" padding="16" padding-bottom="8">
@@ -111,7 +126,8 @@ const breadcrumbs = section
                 </nldd-container>
             )
         }
-        <nldd-rich-text id="inhoud" data-pagefind-body>
+        <nldd-spacer size="24" />
+        <nldd-rich-text data-pagefind-body>
             <Content />
         </nldd-rich-text>
         {
@@ -137,19 +153,10 @@ const breadcrumbs = section
 </Layout>
 
 <script>
-    // While the sidebar is collapsed into its sheet, a button in the top bar
-    // opens it.
     type SidebarSection = HTMLElement & { show(): void };
-    const section = document.getElementById('content-section') as SidebarSection | null;
-    const opener = document.getElementById('sidebar-open');
+    const section = document.getElementById('inhoud') as SidebarSection | null;
+    const opener = document.getElementById('toc-open');
     if (section && opener) {
-        const sync = () => {
-            opener.hidden = !section.hasAttribute('collapsed');
-        };
-        // collapse-change fires before the component reflects `collapsed`, so
-        // the attribute is watched instead.
-        new MutationObserver(sync).observe(section, { attributeFilter: ['collapsed'] });
-        sync();
         opener.addEventListener('click', () => section.show());
         section.addEventListener('open', () => opener.setAttribute('expanded', ''));
         section.addEventListener('close', () => opener.removeAttribute('expanded'));
