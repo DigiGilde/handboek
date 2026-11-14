@@ -15,8 +15,6 @@ interface Props {
     breadcrumbs?: Crumb[];
     // Date of the last commit to the page, shown in the footer.
     updated?: Date;
-    // The page has a table of contents; on a narrow screen the top bar opens it.
-    toc?: boolean;
     // Where the back button in the top bar leads; the home page by default.
     back?: { text: string; href: string };
 }
@@ -26,7 +24,6 @@ const {
     description = 'In het Digi Handboek vind je handige informatie over hoe zaken bij het Digi Gilde zijn geregeld.',
     breadcrumbs = [],
     updated,
-    toc,
     back,
 } = Astro.props;
 const siteTitle = 'Digi Handboek';
@@ -66,18 +63,6 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                         back-text={isHome ? undefined : (back?.text ?? 'Startpagina')}
                     >
                         <nldd-menu-bar slot="utility" accessible-label="Hulpmenu">
-                            {
-                                toc && (
-                                    <nldd-menu-bar-item
-                                        id="sidebar-open"
-                                        text="Op deze pagina"
-                                        icon="bullet-list"
-                                        content-priority="icon"
-                                        haspopup="dialog"
-                                        hidden
-                                    />
-                                )
-                            }
                             <nldd-menu-bar-item
                                 id="search-open"
                                 text="Zoeken"
