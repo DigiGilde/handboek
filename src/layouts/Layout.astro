@@ -1,6 +1,5 @@
 ---
 import '@nldd/design-system/styles';
-import '../styles/site.css';
 import favicon from '@nldd/design-system/favicon.svg?url';
 import touchIcon from '@nldd/design-system/touch-icon.png?url';
 
@@ -53,7 +52,7 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
         <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
     </head>
     <body>
-        <nldd-app-view>
+        <nldd-shell>
             <nldd-page>
                 <nldd-skip-link slot="header" text="Direct naar de inhoud" href="#inhoud">
                     <nldd-top-navigation-bar
@@ -134,7 +133,7 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                     </nldd-page-footer-legal-bar>
                 </nldd-page-footer>
             </nldd-page>
-        </nldd-app-view>
+        </nldd-shell>
 
         <nldd-window
             id="search-window"

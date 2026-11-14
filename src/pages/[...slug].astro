@@ -98,7 +98,7 @@ const breadcrumbs = section
         {
             hasToc && (
                 <nldd-container slot="sidebar" padding="16" lg-padding-top="0" gap="8">
-                    <nldd-title id="toc-title" size="4" text="Op deze pagina" />
+                    <nldd-text id="toc-title" size="display-4">Op deze pagina</nldd-text>
                     <nldd-list id="toc" type="navigation" aria-label="Op deze pagina" dividers="never">
                         {toc.map((heading) => (
                             <nldd-list-item href={`#${heading.slug}`} size="sm">
@@ -119,7 +119,7 @@ const breadcrumbs = section
                     <nldd-spacer size="48" />
                     <nldd-divider />
                     <nldd-spacer size="24" />
-                    <nldd-title size="3" heading-level="2" text="Lees ook" />
+                    <nldd-title size="display-3" heading-level="2" text="Lees ook" />
                     <nldd-spacer size="16" />
                     <nldd-list type="navigation" appearance="box-tinted" aria-label="Lees ook">
                         {readMore.map((page) => (
