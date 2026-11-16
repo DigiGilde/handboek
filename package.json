@@ -20,7 +20,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@nldd/design-system": "^0.23.0",
     "astro": "^7.4.12",
-    "pagefind": "^1.5.2"
+    "pagefind": "^1.6.0"
   },
   "devDependencies": {
     "pa11y-ci": "^5.0.0",
