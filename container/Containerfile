@@ -1,5 +1,9 @@
 FROM ghcr.io/rijksictgilde/nginx-base:2026.10.26@sha256:fcfee5b319c0fc4af1c9bd383843659cbe0c366a93220e5d76cb68a128d62b3e
 
+USER root
+RUN apk upgrade --no-cache
+USER 101
+
 COPY container/nginx.conf /etc/nginx/nginx.conf
 COPY container/security-headers.conf /etc/nginx/security-headers.conf
 COPY dist/ /usr/share/nginx/html/
