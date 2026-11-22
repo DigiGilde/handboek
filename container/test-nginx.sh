@@ -4,13 +4,13 @@
 # Alpine packages on every build, next to a pinned nginx, so a library update
 # could break nginx without the build failing.
 #
-# Usage: container/smoke-test.sh <image>   (CONTAINER_ENGINE=podman locally)
+# Usage: container/test-nginx.sh <image>   (CONTAINER_ENGINE=podman locally)
 set -euo pipefail
 
 image="${1:?usage: $0 <image>}"
 engine="${CONTAINER_ENGINE:-docker}"
-name="smoke-test-$$"
-port="${SMOKE_PORT:-18080}"
+name="test-nginx-$$"
+port="${TEST_PORT:-18080}"
 
 trap '"$engine" rm -f "$name" >/dev/null 2>&1 || true' EXIT
 
