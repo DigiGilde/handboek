@@ -1,8 +1,3 @@
----
-# The home page opens with a hero that carries this title.
-hero: true
----
-
 # Het Digi Handboek
 
 We hebben deze centrale plek gemaakt zodat je snel de informatie vindt die je nodig hebt. Dit is in aanvulling op de

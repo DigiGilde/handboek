@@ -56,9 +56,8 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                     <nldd-top-navigation-bar
                         logo-title="Rijksorganisatie voor Ontwikkeling, Digitalisering en Innovatie"
                         logo-subtitle="Ministerie van Binnenlandse Zaken en Koninkrijksrelaties"
-                        logo-href={home}
-                        website-title={siteTitle}
-                        website-href={home}
+                        website-title={isHome ? undefined : siteTitle}
+                        website-href={isHome ? undefined : home}
                         back-href={isHome ? undefined : (back?.href ?? home)}
                         back-text={isHome ? undefined : (back?.text ?? 'Startpagina')}
                     >
@@ -68,7 +67,7 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                                 text="Zoeken"
                                 accessible-label="Zoeken (sneltoets Control+K)"
                                 icon="search"
-                                content-priority="icon"
+                                content-priority="text"
                                 haspopup="dialog"
                             />
                         </nldd-menu-bar>
@@ -114,7 +113,7 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                             href={`${base}/over/toegankelijkheid/`}
                             text="Toegankelijkheid"
                         />
-                        <nldd-page-footer-legal-bar-item slot="end" href={`${base}/over/licentie/`} text="Licentie" />
+                        <nldd-page-footer-legal-bar-item slot="end" href={`${base}/over/privacy/`} text="Privacy" />
                         <nldd-page-footer-legal-bar-item slot="end" href={`${base}/over/`} text="Over deze website" />
                     </nldd-page-footer-legal-bar>
                 </nldd-page-footer>

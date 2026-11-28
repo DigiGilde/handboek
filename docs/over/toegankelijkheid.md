@@ -51,8 +51,8 @@ de codevoorbeelden meldt axe-core als "best practice".
   schaduw-DOM. De ondersteuning daarvoor verschilt per schermlezer en is niet apart per schermlezer geverifieerd.
 - **De footer als landmark.** De footer is twee keer als landmark aanwezig, en een van de twee ligt binnen een andere
   landmark. Een schermlezer kan de footer daardoor dubbel aankondigen.
-- **Lijsten bedien je met de pijltjestoetsen.** De inhoudsopgave en "Lees ook" zijn elk één tabstop; binnen de lijst
-  ga je met de pijltjes naar de volgende link. Zo werkt elke lijst in het designsysteem, maar wie per link Tab verwacht,
+- **Lijsten bedien je met de pijltjestoetsen.** De inhoudsopgave is één tabstop; binnen de lijst ga je met de pijltjes
+  naar de volgende link. Zo werkt elke lijst in het designsysteem, maar wie per link Tab verwacht,
   kan dat onverwacht vinden.
 - **Codevoorbeelden.** Elk codevoorbeeld is een eigen regio met de naam "Code". Staan er meerdere op een pagina, dan
   zijn die regio's voor een schermlezer niet van elkaar te onderscheiden.

@@ -73,11 +73,11 @@ function lastModified(file: string | undefined): Date | undefined {
 
 const updated = lastModified(entry.filePath);
 
-const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
-const hasToc = toc.length > 1;
-// Every page in a section keeps its text beside the sidebar, also with nothing
-// in it, so the text does not jump between pages.
-const Section = section ? 'nldd-sidebar-section' : 'nldd-simple-section';
+// A table of contents where it helps (the NLDD content page pattern): three or
+// more h2's, or a text longer than about two screens.
+const toc = headings.filter((heading) => heading.depth === 2);
+const hasToc = toc.length >= 3 || (toc.length >= 2 && (entry.body ?? '').length > 4000);
+const Section = hasToc ? 'nldd-sidebar-section' : 'nldd-simple-section';
 const breadcrumbs = section
     ? [
           { text: section.title, href: sectionHref(section) },
@@ -93,13 +93,14 @@ const breadcrumbs = section
     updated={updated}
     back={section && { text: section.title, href: sectionHref(section) }}
 >
-    <Section id="inhoud" {...(section ? { 'sidebar-label': 'Op deze pagina' } : {})}>
-        <nldd-title><h1>{title}</h1></nldd-title>
+    <Section id="inhoud" grow {...(hasToc ? { 'sidebar-label': 'Op deze pagina' } : {})}>
+        <nldd-title slot="header"><h1>{title}</h1></nldd-title>
         {
             hasToc && (
                 <>
-                    <nldd-spacer sidebar-section-only="collapsed" size="16" />
+                    <nldd-spacer slot="header" sidebar-section-only="collapsed" size="16" />
                     <nldd-button
+                        slot="header"
                         id="toc-open"
                         sidebar-section-only="collapsed"
                         appearance="secondary"
@@ -107,49 +108,57 @@ const breadcrumbs = section
                         text="Op deze pagina"
                         popup-type="dialog"
                     />
+                    <nldd-container slot="sidebar" padding="16" padding-bottom="8">
+                        <nldd-title sidebar-section-only="expanded" size="display-5">
+                            <h2>Op deze pagina</h2>
+                        </nldd-title>
+                        <nldd-spacer sidebar-section-only="expanded" size="8" />
+                        {/* No `current` on a row: with nothing else showing the place, its fill fails WCAG 1.4.1 and 1.4.11. */}
+                        <nldd-list type="navigation" appearance="simple" dividers="never" accessible-label="Op deze pagina">
+                            {toc.map((heading) => (
+                                <nldd-list-item href={`#${heading.slug}`} current-type="location">
+                                    <nldd-text-cell>
+                                        <p>{heading.text}</p>
+                                    </nldd-text-cell>
+                                </nldd-list-item>
+                            ))}
+                        </nldd-list>
+                    </nldd-container>
                 </>
             )
         }
-        {
-            hasToc && (
-                <nldd-container slot="sidebar" padding="16" padding-bottom="8">
-                    <nldd-title sidebar-section-only="expanded" size="display-5" text="Op deze pagina" heading-level="2" />
-                    <nldd-spacer sidebar-section-only="expanded" size="8" />
-                    <nldd-list id="toc" type="navigation" appearance="simple" dividers="never" accessible-label="Op deze pagina">
-                        {toc.map((heading) => (
-                            <nldd-list-item href={`#${heading.slug}`} current-type="location" size="sm">
-                                {heading.depth === 3 && <nldd-spacer-cell size="16" />}
-                                <nldd-text-cell text={heading.text} />
-                            </nldd-list-item>
-                        ))}
-                    </nldd-list>
-                </nldd-container>
-            )
-        }
-        <nldd-spacer size="24" />
         <nldd-rich-text data-pagefind-body>
             <Content />
         </nldd-rich-text>
-        {
-            readMore.length > 0 && (
-                <>
-                    <nldd-spacer size="48" />
-                    <nldd-divider />
-                    <nldd-spacer size="24" />
-                    <nldd-title size="display-3" heading-level="2" text="Lees ook" />
-                    <nldd-spacer size="16" />
-                    <nldd-list type="navigation" appearance="box-tinted" aria-label="Lees ook">
-                        {readMore.map((page) => (
-                            <nldd-list-item href={pageHref(page.id)}>
-                                <nldd-text-cell text={page.title} supporting-text={page.description} />
-                                <nldd-icon-cell icon="chevron-right" size="20" />
-                            </nldd-list-item>
-                        ))}
-                    </nldd-list>
-                </>
-            )
-        }
     </Section>
+    {
+        readMore.length > 0 && (
+            <nldd-simple-section background="tinted">
+                <nldd-title slot="header" size="display-3">
+                    <h2>Lees ook</h2>
+                </nldd-title>
+                <nldd-collection layout="grid" item-min-width="280px">
+                    {readMore.map((page) => (
+                        <nldd-card href={pageHref(page.id)} accessible-label={page.title}>
+                            <nldd-container padding="16">
+                                <nldd-title size="display-5">
+                                    <h3>{page.title}</h3>
+                                </nldd-title>
+                                {page.description && (
+                                    <>
+                                        <nldd-spacer size="4" />
+                                        <nldd-rich-text>
+                                            <p>{page.description}</p>
+                                        </nldd-rich-text>
+                                    </>
+                                )}
+                            </nldd-container>
+                        </nldd-card>
+                    ))}
+                </nldd-collection>
+            </nldd-simple-section>
+        )
+    }
 </Layout>
 
 <script>
@@ -160,58 +169,5 @@ const breadcrumbs = section
         opener.addEventListener('click', () => section.show());
         section.addEventListener('open', () => opener.setAttribute('expanded', ''));
         section.addEventListener('close', () => opener.removeAttribute('expanded'));
-    }
-
-    // The table of contents marks the section being read: the last heading
-    // that has scrolled past the top quarter of the viewport. At the end of the
-    // page that is the last heading, and after a jump it is the one jumped to,
-    // since a heading near the end never reaches the top of the viewport.
-    const tocItems = new Map(
-        [...document.querySelectorAll<HTMLElement>('#toc nldd-list-item')].map((item) => [
-            decodeURIComponent(item.getAttribute('href')?.slice(1) ?? ''),
-            item,
-        ]),
-    );
-    const tocHeadings = [...tocItems.keys()]
-        .map((id) => document.getElementById(id))
-        .filter((heading): heading is HTMLElement => heading !== null);
-    if (tocHeadings.length > 0) {
-        let current: HTMLElement | undefined;
-        let pinned = tocItems.has(decodeURIComponent(location.hash.slice(1)))
-            ? decodeURIComponent(location.hash.slice(1))
-            : undefined;
-        let jumping = false;
-
-        const markCurrent = () => {
-            let id = pinned;
-            if (!id) {
-                const atEnd = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
-                const passed = tocHeadings.filter((heading) => heading.getBoundingClientRect().top < innerHeight / 4);
-                id = (atEnd ? tocHeadings.at(-1) : (passed.at(-1) ?? tocHeadings[0]))?.id;
-            }
-            const item = id ? tocItems.get(id) : undefined;
-            if (item === current) return;
-            current?.removeAttribute('current');
-            item?.setAttribute('current', '');
-            current = item;
-        };
-
-        addEventListener('hashchange', () => {
-            const id = decodeURIComponent(location.hash.slice(1));
-            if (!tocItems.has(id)) return;
-            pinned = id;
-            jumping = true;
-            setTimeout(() => (jumping = false), 500);
-            markCurrent();
-        });
-        addEventListener(
-            'scroll',
-            () => {
-                if (!jumping) pinned = undefined;
-                markCurrent();
-            },
-            { passive: true },
-        );
-        markCurrent();
     }
 </script>

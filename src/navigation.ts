@@ -11,6 +11,10 @@ export interface NavSection {
     title: string;
     // The section overview lives at /<slug>/.
     slug: string;
+    // The card on the home page: one sentence, and a button text that reads
+    // on its own.
+    summary?: string;
+    action?: string;
     pages: NavPage[];
 }
 
@@ -18,6 +22,8 @@ export const navigation: NavSection[] = [
     {
         title: 'Onze werkwijze',
         slug: 'werkwijze',
+        summary: 'De principes waar we op werken, en hoe we beslissingen vastleggen en elkaars code reviewen.',
+        action: 'Lees onze werkwijze',
         pages: [
             { title: 'Principes', id: 'werkwijze/principes' },
             {
@@ -32,6 +38,8 @@ export const navigation: NavSection[] = [
     {
         title: 'Onboarding',
         slug: 'onboarding',
+        summary: 'Wat je nodig hebt om goed te starten: je eerste dagen, je laptop, je accounts en hybride werken.',
+        action: 'Lees hoe je start',
         pages: [
             { title: 'Je eerste dagen', id: 'onboarding/eerste-dagen' },
             { title: 'Dev machine', id: 'onboarding/dev-machine' },
@@ -43,6 +51,8 @@ export const navigation: NavSection[] = [
     {
         title: 'Kennis',
         slug: 'kennis',
+        summary: 'Wat we in projecten uitzochten, zoals inloggen met SSO-Rijk en een werkplek reserveren via Mattermost.',
+        action: 'Bekijk de kennis',
         pages: [
             { title: 'SSO Rijk', id: 'kennis/sso-rijk-keycloak' },
             { title: 'Reservation Bot', id: 'kennis/reservation-bot' },
