@@ -7,8 +7,8 @@ import Layout from '../layouts/Layout.astro';
 import { pageHref, sectionHref, sectionOf, sections } from '../navigation';
 
 export async function getStaticPaths() {
-    // The home page and the section overviews have pages of their own.
-    const overviews = new Set(['index', ...sections.map((section) => section.slug)]);
+    // The home page, the projects and the section overviews have pages of their own.
+    const overviews = new Set(['index', 'projecten', ...sections.map((section) => section.slug)]);
     const entries = await getCollection('handboek', (entry) => !overviews.has(entry.id));
     return entries.map((entry) => ({
         params: { slug: entry.id.replace(/\/index$/, '') },
@@ -30,11 +30,19 @@ const section = sectionOf(entry.id);
 const entries = await getCollection('handboek');
 const allPages = sections.flatMap((item) => item.pages);
 const related = entry.data.related
-    ? entry.data.related.map((id) => {
-          const page = allPages.find((item) => item.id === id);
-          if (!page) throw new Error(`${entry.id}: related page "${id}" is not in src/navigation.ts`);
-          return page;
-      })
+    ? await Promise.all(
+          entry.data.related.map(async (id) => {
+              const page = allPages.find((item) => item.id === id);
+              if (page) return page;
+              const overview = sections.find((item) => item.slug === id);
+              if (overview) return { id, title: overview.title, description: overview.summary };
+              // A page outside the navigation, such as the projects, is titled by its h1.
+              const other = entries.find((item) => item.id === id);
+              if (!other) throw new Error(`${entry.id}: related page "${id}" does not exist`);
+              const title: string = (await render(other)).remarkPluginFrontmatter.title;
+              return { id, title };
+          }),
+      )
     : (section?.pages.filter((page) => page.id !== entry.id) ?? []);
 const readMore = related.slice(0, 5).map((page) => ({
     ...page,

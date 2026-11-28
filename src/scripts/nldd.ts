@@ -23,10 +23,12 @@ import '@nldd/design-system/simple-section';
 import '@nldd/design-system/skip-link';
 import '@nldd/design-system/spacer';
 import '@nldd/design-system/spacer-cell';
+import '@nldd/design-system/tag';
 import '@nldd/design-system/text';
 import '@nldd/design-system/text-cell';
 import '@nldd/design-system/title';
 import '@nldd/design-system/top-navigation-bar';
+import '@nldd/design-system/two-thirds-one-third-section';
 import '@nldd/design-system/window';
 
 // The code viewer brings CodeMirror, about half of all the JavaScript, and only
