@@ -1,7 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { navigation, pageHref } from '../navigation';
+import { navigation, sectionHref } from '../navigation';
 
 const entry = await getEntry('handboek', 'index');
 if (!entry) throw new Error('docs/index.md is missing');
@@ -9,8 +9,9 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 ---
 
 <Layout>
-    <nldd-hero id="inhoud">
-        <nldd-title size="display-1" text={remarkPluginFrontmatter.title} heading-level="1" />
+    {/* corner="" lets the hero pick the corner; a bare `corner` renders as corner="true", which is none. */}
+    <nldd-hero id="inhoud" corner="">
+        <nldd-title><h1>{remarkPluginFrontmatter.title}</h1></nldd-title>
         <nldd-spacer size="16" />
         <nldd-rich-text>
             <p>Alles wat je nodig hebt om goed te starten en te werken bij het Digi Gilde.</p>
@@ -18,16 +19,34 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
     </nldd-hero>
 
     <nldd-simple-section background="tinted">
-        <nldd-title slot="header" size="display-2" text="Wat je hier vindt" heading-level="2" />
-        <nldd-collection layout="grid" item-min-width="280px">
+        <nldd-title slot="header"><h2>Wat je hier vindt</h2></nldd-title>
+        <nldd-spacer slot="header" size="16" />
+        <nldd-rich-text slot="header">
+            <p>Hoe we werken, hoe je bij ons begint en wat we in projecten hebben uitgezocht.</p>
+        </nldd-rich-text>
+        <nldd-collection layout="grid" item-min-width="320px">
             {
                 navigation.map((section) => (
                     <nldd-card>
-                        <nldd-container padding="16" gap="8">
-                            <nldd-title size="display-4" text={section.title} heading-level="3" />
-                            {section.pages.map((page) => (
-                                <nldd-link href={pageHref(page.id)} text={page.title} />
-                            ))}
+                        <nldd-container padding="16">
+                            <nldd-title size="display-4">
+                                <h3>{section.title}</h3>
+                            </nldd-title>
+                            {section.summary && (
+                                <>
+                                    <nldd-spacer size="8" />
+                                    <nldd-rich-text>
+                                        <p>{section.summary}</p>
+                                    </nldd-rich-text>
+                                </>
+                            )}
+                        </nldd-container>
+                        <nldd-container slot="footer" padding-inline="16" padding-bottom="16">
+                            <nldd-button
+                                appearance="neutral-tinted"
+                                text={section.action ?? section.title}
+                                href={sectionHref(section)}
+                            />
                         </nldd-container>
                     </nldd-card>
                 ))

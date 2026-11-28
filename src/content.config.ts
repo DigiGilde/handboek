@@ -9,7 +9,6 @@ const handboek = defineCollection({
     schema: z.object({
         // One sentence on what the page covers, shown in the section overview.
         description: z.string().optional(),
-        hero: z.boolean().optional(),
         // Entry ids for "Lees ook", in place of the other pages of the section.
         related: z.array(z.string()).max(5).optional(),
     }),

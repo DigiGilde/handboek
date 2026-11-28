@@ -27,8 +27,9 @@ const field = document.getElementById('search-query') as (HTMLElement & { value:
 const results = document.getElementById('search-results');
 const output = document.getElementById('search-output');
 const status = document.getElementById('search-status');
+const statusText = document.getElementById('search-status-text');
 
-if (searchWindow && opener && field && results && output && status) {
+if (searchWindow && opener && field && results && output && status && statusText) {
     const emptyState = results.querySelector('[slot="empty"]') as InlineDialog;
     const base = (searchWindow.dataset.base ?? '/').replace(/\/$/, '');
     let pagefind: Promise<Pagefind> | undefined;
@@ -85,12 +86,12 @@ if (searchWindow && opener && field && results && output && status) {
     // the change in a live region that is already there.
     const announce = (text: string) => {
         if (!text) {
-            status.textContent = '';
+            statusText.textContent = '';
             status.hidden = true;
             return;
         }
         status.hidden = false;
-        requestAnimationFrame(() => (status.textContent = text));
+        requestAnimationFrame(() => (statusText.textContent = text));
     };
 
     // nldd-window caps its height as if it stood at the top of the screen,

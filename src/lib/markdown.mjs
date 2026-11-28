@@ -4,9 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 const docsRoot = path.resolve('docs');
 
-// The first h1 is the page title, for <title>. The page renders it itself, so
-// it leaves the prose: in a hero with `hero: true` in the frontmatter, and above
-// the text on a content page. A section overview (an index.md) keeps it.
+// The first h1 is the page title, for <title>. The page renders it itself, in
+// an nldd-title, so it leaves the prose.
 export const pageTitle = {
     name: 'page-title',
     element: {
@@ -15,7 +14,7 @@ export const pageTitle = {
             const frontmatter = ctx.data.astro?.frontmatter;
             if (!frontmatter || frontmatter.title) return;
             frontmatter.title = ctx.textContent(node).trim();
-            if (frontmatter.hero || !String(ctx.fileURL ?? '').endsWith('/index.md')) ctx.removeNode(node);
+            ctx.removeNode(node);
         },
     },
 };

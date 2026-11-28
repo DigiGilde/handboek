@@ -15,9 +15,11 @@ const { section } = Astro.props;
 
 const entries = await getCollection('handboek');
 
-// docs/<slug>/index.md (entry id <slug>), where it exists, opens the overview with its own title.
+// docs/<slug>/index.md (entry id <slug>), where it exists, gives the overview its title and intro.
 const intro = entries.find((entry) => entry.id === section.slug);
-const Intro = intro ? (await render(intro)).Content : undefined;
+const rendered = intro ? await render(intro) : undefined;
+const Intro = rendered?.Content;
+const title: string = rendered?.remarkPluginFrontmatter.title ?? section.title;
 
 const pages = section.pages.map((page) => ({
     ...page,
@@ -27,21 +29,24 @@ const pages = section.pages.map((page) => ({
 
 <Layout title={section.title} breadcrumbs={[{ text: section.title }]}>
     <nldd-one-third-two-thirds-section id="inhoud">
+        <nldd-title slot="left"><h1>{title}</h1></nldd-title>
         {
-            Intro ? (
-                <nldd-rich-text slot="left" data-pagefind-body>
-                    <Intro />
-                </nldd-rich-text>
-            ) : (
-                <nldd-title slot="left" size="display-1" text={section.title} heading-level="1" />
+            Intro && (
+                <>
+                    <nldd-spacer slot="left" size="16" />
+                    <nldd-rich-text slot="left" data-pagefind-body>
+                        <Intro />
+                    </nldd-rich-text>
+                </>
             )
         }
-        <nldd-list slot="right" type="navigation" appearance="box-tinted" aria-label={section.title}>
+        <nldd-list slot="right" type="navigation" accessible-label={section.title}>
             {
                 pages.map((page) => (
                     <nldd-list-item href={pageHref(page.id)}>
                         <nldd-text-cell text={page.title} supporting-text={page.description} />
-                        <nldd-icon-cell icon="chevron-right" size="20" />
+                        <nldd-spacer-cell size="12" />
+                        <nldd-icon-cell size="20" color="secondary" icon="chevron-right" />
                     </nldd-list-item>
                 ))
             }
