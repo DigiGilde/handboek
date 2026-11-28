@@ -11,6 +11,20 @@ const handboek = defineCollection({
         description: z.string().optional(),
         // Entry ids for "Lees ook", in place of the other pages of the section.
         related: z.array(z.string()).max(5).optional(),
+        // Only on docs/projecten.md: the projects page, and "Waar we aan werken" on the home page.
+        projects: z
+            .array(
+                z.object({
+                    title: z.string(),
+                    href: z.url().optional(),
+                    code: z.url().optional(),
+                    summary: z.string(),
+                    description: z.string(),
+                    kind: z.enum(['Programma', 'Verkenning', 'Product']),
+                    home: z.boolean().optional(),
+                }),
+            )
+            .optional(),
     }),
 });
 

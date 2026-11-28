@@ -1,11 +1,13 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { navigation, sectionHref } from '../navigation';
+import { navigation, pageHref, sectionHref } from '../navigation';
 
 const entry = await getEntry('handboek', 'index');
 if (!entry) throw new Error('docs/index.md is missing');
-const { Content, remarkPluginFrontmatter } = await render(entry);
+const { remarkPluginFrontmatter } = await render(entry);
+const projectsEntry = await getEntry('handboek', 'projecten');
+const projects = (projectsEntry?.data.projects ?? []).filter((project) => project.home);
 ---
 
 <Layout>
@@ -54,9 +56,63 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
         </nldd-collection>
     </nldd-simple-section>
 
-    <nldd-simple-section>
-        <nldd-rich-text data-pagefind-body>
-            <Content />
+    <nldd-two-thirds-one-third-section>
+        <nldd-title slot="left"><h2>We helpen de overheid aan digitale doorbraken</h2></nldd-title>
+        <nldd-spacer slot="left" size="16" />
+        <nldd-rich-text slot="left">
+            <p>
+                Het Digi Gilde is onderdeel van <a href="https://www.rijksorganisatieodi.nl/">ODI</a> en bemenst de
+                Nederlandse Digitale Dienst. We bouwen software en prototypes die laten zien wat er kan, samen met
+                beleidsmakers, juristen en andere experts, en we brengen ze tot in de uitvoering.
+            </p>
+            <p>
+                Wie er in het Digi Gilde werkt en aan welke opdracht, zie je in{' '}
+                <a href="https://wies.rijksorganisatieodi.nl/?merk=1c151b4d-5a38-4945-a9b2-fbd020a53a44">Wies</a>.
+            </p>
         </nldd-rich-text>
+        <nldd-card slot="right">
+            <nldd-container padding="16">
+                <nldd-title size="display-4"><h3>Meer over het Digi Gilde</h3></nldd-title>
+                <nldd-spacer size="8" />
+                <nldd-rich-text>
+                    <p>Wat we doen, hoe we werken en welke projecten we nu oppakken.</p>
+                </nldd-rich-text>
+                <nldd-spacer size="16" />
+                <nldd-button appearance="secondary" text="Lees over het Digi Gilde" href={pageHref('over/digi-gilde')} />
+            </nldd-container>
+        </nldd-card>
+    </nldd-two-thirds-one-third-section>
+
+    {
+        projects.length > 0 && (
+            <nldd-one-third-two-thirds-section>
+                <nldd-title slot="left"><h2>Waar we aan werken</h2></nldd-title>
+                <nldd-spacer slot="left" size="16" />
+                <nldd-rich-text slot="left">
+                    <p>Een greep uit de projecten van het Digi Gilde.</p>
+                </nldd-rich-text>
+                <nldd-spacer slot="left" size="16" />
+                <nldd-button slot="left" appearance="secondary" text="Bekijk alle projecten" href={pageHref('projecten')} />
+                <nldd-list slot="right" type="navigation" accessible-label="Waar we aan werken">
+                    {projects.map((project) => (
+                        <nldd-list-item href={project.href ?? project.code}>
+                            <nldd-text-cell text={project.title} supporting-text={project.summary} />
+                            <nldd-spacer-cell size="12" />
+                            <nldd-icon-cell size="20" color="secondary" icon="chevron-right" />
+                        </nldd-list-item>
+                    ))}
+                </nldd-list>
+            </nldd-one-third-two-thirds-section>
+        )
+    }
+
+    <nldd-simple-section background="tinted">
+        <nldd-title><h2>Mis je iets in dit handboek?</h2></nldd-title>
+        <nldd-spacer size="16" />
+        <nldd-rich-text>
+            <p>Iedereen kan het handboek aanvullen of verbeteren.</p>
+        </nldd-rich-text>
+        <nldd-spacer size="16" />
+        <nldd-button appearance="primary" text="Zo draag je bij" href={pageHref('bijdragen-aan-handboek')} />
     </nldd-simple-section>
 </Layout>

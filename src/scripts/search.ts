@@ -2,6 +2,8 @@
 // Opens from the Zoeken item in the top bar and with Cmd/Ctrl+K. The window
 // starts as just the search field and grows with the results.
 
+import { highlightParam } from './highlight';
+
 interface PagefindResult {
     url: string;
     excerpt: string;
@@ -10,7 +12,7 @@ interface PagefindResult {
 }
 
 interface Pagefind {
-    options(options: { excerptLength?: number }): Promise<void>;
+    options(options: { excerptLength?: number; highlightParam?: string }): Promise<void>;
     debouncedSearch(
         query: string,
         options?: object,
@@ -37,7 +39,7 @@ if (searchWindow && opener && field && results && output && status && statusText
     // The index only exists in a build; `astro dev` has none.
     const loadPagefind = (): Promise<Pagefind> => {
         pagefind ??= import(/* @vite-ignore */ `${base}/pagefind/pagefind.js`).then(async (module: Pagefind) => {
-            await module.options({ excerptLength: 24 });
+            await module.options({ excerptLength: 24, highlightParam });
             return module;
         });
         return pagefind;

@@ -38,7 +38,7 @@ export const navigation: NavSection[] = [
     {
         title: 'Onboarding',
         slug: 'onboarding',
-        summary: 'Wat je nodig hebt om goed te starten: je eerste dagen, je laptop, je accounts en hybride werken.',
+        summary: 'Wat je nodig hebt om goed te starten, zoals je eerste dagen, je laptop, je accounts en hybride werken.',
         action: 'Lees hoe je start',
         pages: [
             { title: 'Je eerste dagen', id: 'onboarding/eerste-dagen' },
@@ -66,6 +66,7 @@ export const about: NavSection = {
     title: 'Over deze website',
     slug: 'over',
     pages: [
+        { title: 'Over het Digi Gilde', id: 'over/digi-gilde' },
         { title: 'Toegankelijkheid', id: 'over/toegankelijkheid' },
         { title: 'Privacy', id: 'over/privacy' },
         { title: 'Licentie', id: 'over/licentie' },
