@@ -1,6 +1,6 @@
 /*
  * The design system keeps the page hidden while any element on it is undefined,
- * custom elements the site does not define included (checked against 0.23.0).
+ * custom elements the site does not define included (checked against 0.29.3).
  * So this waits for our own components only: nldd.ts defines them all in the
  * one task that evaluates it. The code viewer loads on its own and is not
  * waited for. These rules match the specificity of the design system's own, so

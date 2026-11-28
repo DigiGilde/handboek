@@ -133,19 +133,21 @@ const updatedText = updated?.toLocaleDateString('nl-NL', { ...dateFormat, dateSt
                 <nldd-container slot="header" padding="16">
                     <nldd-search-field id="search-query" placeholder="Zoek in het Digi Handboek" />
                 </nldd-container>
-                <nldd-container padding-inline="16">
-                    <nldd-text id="search-status" size="sm" color="secondary" role="status" hidden />
-                </nldd-container>
-                <nldd-container id="search-output" padding="16" padding-top="8" hidden>
-                    <nldd-list id="search-results" type="navigation" aria-label="Zoekresultaten">
-                        <nldd-inline-dialog
-                            slot="empty"
-                            icon="search"
-                            text="Geen resultaten"
-                            supporting-text="Probeer een ander zoekwoord."
-                        />
-                    </nldd-list>
-                </nldd-container>
+                <nldd-simple-section padding-block="0">
+                    <nldd-text id="search-status" size="sm" color="secondary" role="status" hidden>
+                        <p id="search-status-text"></p>
+                    </nldd-text>
+                    <nldd-container id="search-output" padding-top="8" padding-bottom="16" hidden>
+                        <nldd-list id="search-results" type="navigation" accessible-label="Zoekresultaten">
+                            <nldd-inline-dialog
+                                slot="empty"
+                                icon="search"
+                                text="Geen resultaten"
+                                supporting-text="Probeer een ander zoekwoord."
+                            />
+                        </nldd-list>
+                    </nldd-container>
+                </nldd-simple-section>
             </nldd-page>
         </nldd-window>
 
