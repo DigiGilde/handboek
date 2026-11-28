@@ -95,7 +95,7 @@ const projects = (projectsEntry?.data.projects ?? []).filter((project) => projec
                 <nldd-button slot="left" appearance="secondary" text="Bekijk alle projecten" href={pageHref('projecten')} />
                 <nldd-list slot="right" type="navigation" accessible-label="Waar we aan werken">
                     {projects.map((project) => (
-                        <nldd-list-item href={project.href}>
+                        <nldd-list-item href={project.href ?? project.code}>
                             <nldd-text-cell text={project.title} supporting-text={project.summary} />
                             <nldd-spacer-cell size="12" />
                             <nldd-icon-cell size="20" color="secondary" icon="chevron-right" />

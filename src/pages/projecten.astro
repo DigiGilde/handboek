@@ -39,8 +39,23 @@ const slug = (text: string) =>
                                 <p>{project.description}</p>
                             </nldd-rich-text>
                         </nldd-container>
-                        <nldd-container slot="footer" padding-inline="16" padding-bottom="16">
-                            <nldd-button appearance="neutral-tinted" text={`Naar ${project.title}`} href={project.href} />
+                        <nldd-container slot="footer" layout="wrap" gap="8" padding-inline="16" padding-bottom="16">
+                            {project.href && (
+                                <nldd-button
+                                    appearance="neutral-tinted"
+                                    text="Site"
+                                    accessible-label={`Site van ${project.title}`}
+                                    href={project.href}
+                                />
+                            )}
+                            {project.code && (
+                                <nldd-button
+                                    appearance="neutral-tinted"
+                                    text="Broncode"
+                                    accessible-label={`Broncode van ${project.title}`}
+                                    href={project.code}
+                                />
+                            )}
                         </nldd-container>
                     </nldd-card>
                 ))

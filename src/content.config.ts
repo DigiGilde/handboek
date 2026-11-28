@@ -16,7 +16,8 @@ const handboek = defineCollection({
             .array(
                 z.object({
                     title: z.string(),
-                    href: z.url(),
+                    href: z.url().optional(),
+                    code: z.url().optional(),
                     summary: z.string(),
                     description: z.string(),
                     kind: z.enum(['Programma', 'Verkenning', 'Product']),
